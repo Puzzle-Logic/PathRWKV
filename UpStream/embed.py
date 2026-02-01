@@ -195,7 +195,7 @@ def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus)
         for batch in dataloader:
             images, ys, xs, slide_ids, total_tiles_batch = batch
             images = images.to(device, non_blocking=True)
-            inference_dtype = torch.bfloat16 if args.bf16 else torch.float16
+            inference_dtype = torch.float16 if args.disable_bf16 else torch.bfloat16
             print(f"Using {inference_dtype} precision")
             with torch.autocast(device_type="cuda", dtype=inference_dtype):
                 features = model(images)
@@ -316,7 +316,7 @@ def parse_args():
     )
     parser.add_argument("--pretrained", type=Union[str, bool], default=True)
     parser.add_argument("--disable_compile", action="store_true")
-    parser.add_argument("--bf16", action="store_false")
+    parser.add_argument("--disable_bf16", action="store_true")
     args = parser.parse_args()
     return args
 
