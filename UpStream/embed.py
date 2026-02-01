@@ -190,13 +190,14 @@ def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus)
     )
 
     slide_buffers = {}
+    inference_dtype = torch.float16 if args.disable_bf16 else torch.bfloat16
+    print(f"Using {inference_dtype} precision on device {device}")
 
     with torch.inference_mode():
         for batch in dataloader:
             images, ys, xs, slide_ids, total_tiles_batch = batch
             images = images.to(device, non_blocking=True)
-            inference_dtype = torch.float16 if args.disable_bf16 else torch.bfloat16
-            print(f"Using {inference_dtype} precision")
+
             with torch.autocast(device_type="cuda", dtype=inference_dtype):
                 features = model(images)
             features_cpu = features.cpu()
