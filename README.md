@@ -12,8 +12,8 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.9.1-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org)
 [![CUDA](https://img.shields.io/badge/CUDA-12.8-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-toolkit)
 
-[![Open In Colab](https://img.shields.io/badge/Open_In_Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/your-username/PathRWKV/blob/main/demo.ipynb)
-[![Hugging Face](https://img.shields.io/badge/🤗_Hugging_Face-Models-FFD21E?style=for-the-badge)](https://huggingface.co/)
+[![Open In Colab](https://img.shields.io/badge/Open_In_Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/Puzzle-Logic/PathRWKV/blob/main/demo.ipynb)
+[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Models%20%26%20Datasets-FFD21E?style=for-the-badge)](https://huggingface.co/PuzzleLogic)
 
 <p align="center">
   <a href="#-highlights">Highlights</a> •
@@ -40,7 +40,7 @@
 Unlike previous MIL methods with linear ($O(N)$) spatial complexity, PathRWKV achieves constant ($O(1)$) space complexity, enabling efficient processing of slides with **100,000+ tiles** on memory constrained edge devices.
 
 <p align="center">
-  <img src="assets/asymmetric.png" alt="Asymmetric Structure">
+  <img src="assets/asymmetric.jpg" alt="Asymmetric Structure">
   <br>
   <em>Asymmetric structure and GPU memory footprint comparison during inference</em>
 </p>
@@ -78,7 +78,7 @@ Unlike previous MIL methods with linear ($O(N)$) spatial complexity, PathRWKV ac
 
 Click the badge below to open the demo notebook in Google Colab:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-username/PathRWKV/blob/main/demo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Puzzle-Logic/PathRWKV/blob/main/demo.ipynb)
 
 ### Mamba/Conda Environment
 
@@ -99,6 +99,39 @@ uv pip install -r pyproject.toml
 ---
 
 ## 🚀 Quick Start
+
+### 🎯 Single Slide Embeddings Inference
+
+```python
+import os
+import torch
+from huggingface_hub import hf_hub_download
+from safetensors.torch import safe_open, load_file
+from DownStream.utils.pipeline import WSIPipeline
+
+USE_HF_WEIGHTS = True  # Download pretrained weights online
+LOCAL_CKPT = "path/to/best.ckpt"
+EMBEDDING_PATH = "path/to/slide_id.safetensors"
+
+if USE_HF_WEIGHTS:
+    model_path = hf_hub_download(repo_id="PuzzleLogic/PathRWKV_CAMELYON16", filename="model.safetensors")
+    model = WSIPipeline() 
+    model.load_state_dict(load_file(model_path))
+    
+else:
+    model = WSIPipeline.load_from_checkpoint(LOCAL_CKPT)
+    
+    
+model.eval().bfloat16().cuda()
+
+with safe_open(EMBEDDING_PATH, framework="pt", device="cuda") as f:
+        features = f.get_tensor("features").unsqueeze(0)  # [1, N, Dim]
+        coords = f.get_tensor("coords_yx").unsqueeze(0)   # [1, N, 2]
+
+with torch.inference_mode():
+    predictions = model(features, coords)
+    print(f"✨ Prediction: {predictions}")
+```
 
 ### 📊 Complete Pipeline
 
@@ -133,29 +166,6 @@ python DownStream/main.py \
     --mode test \
     --test_ckpt /path/to/best.ckpt
 ```
-
-### 🎯 Single Slide Inference
-
-```python
-import torch
-from safetensors.torch import safe_open
-from DownStream.utils.pipeline import WSIPipeline
-
-# Load model
-model = WSIPipeline.load_from_checkpoint("checkpoints/best.ckpt")
-model.eval().bfloat16().cuda()
-
-# Load slide embedding
-with safe_open("slide.safetensors", framework="pt", device="cuda") as f:
-    features = f.get_tensor("features").unsqueeze(0)
-    coords = f.get_tensor("coords_yx").unsqueeze(0)
-
-# Inference
-with torch.inference_mode():
-    predictions = model(features, coords)
-    print(f"Prediction: {predictions}")
-```
-
 ---
 
 ## 📁 Project Structure
@@ -200,13 +210,13 @@ PathRWKV/
 ### Efficiency Comparison
 
 <p align="center">
-  <img src="assets/comparison.png" alt="Efficiency Comparison">
+  <img src="assets/comparison.jpg" alt="Efficiency Comparison">
 </p>
 
 ### CAM Visualization
 
 <p align="center">
-  <img src="assets/cam.png" alt="CAM Visualization">
+  <img src="assets/cam.jpg" alt="CAM Visualization">
 </p>
 
 ---
@@ -229,6 +239,25 @@ PathRWKV/
 </td>
 </tr>
 </table>
+
+### Utilizing Embedded CAMELYON16 Dataset
+
+For convenience, the CAMELYON16 dataset embedded with Prov-GigaPath is hosted on the Hugging Face Hub. You can download it to your local machine for training or analysis using the huggingface_hub Python library:
+```python
+import os
+from huggingface_hub import snapshot_download
+
+repo_id = "PuzzleLogic/CAMELYON16_Embeddings"
+local_dir = "./data/CAMELYON16/tiles-embeddings"
+
+os.makedirs(local_dir, exist_ok=True)
+path = snapshot_download(
+    repo_id=repo_id,
+    local_dir=local_dir,
+    repo_type="dataset",
+    resume_download=True
+)
+```
 
 ### Adding Custom Datasets
 
