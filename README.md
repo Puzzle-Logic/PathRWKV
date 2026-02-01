@@ -2,7 +2,7 @@
 
 # PathRWKV
 
-### *Memory Efficient MIL for Computational Pathology*
+### *Enhancing Slide Inference with Asymmetric Recurrent Modeling*
 
 <!-- [![Paper](https://img.shields.io/badge/📄_Paper-TMI_2026-blue.svg?style=for-the-badge)](https://ieeexplore.ieee.org/) -->
 [![arXiv](https://img.shields.io/badge/arXiv-2503.03199-B31B1B.svg?style=for-the-badge)](https://arxiv.org/abs/2503.03199)
@@ -26,60 +26,23 @@
 
 </div>
 
----
-
-<p align="center">
-  <img src="assets/overview.png" alt="PathRWKV Overview">
-  <br>
-  <em>Overview of PathRWKV architecture</em>
-</p>
-
 ## 📢 News
 
 |     Date      | News                                |
 | :-----------: | :---------------------------------- |
 | 🚀 **2026.02** | Code and pretrained models released |
-| 📊 **2025.03** | Paper uploaded to ArXiv             |
+| 📊 **2025.03** | Paper uploaded to arXiv             |
 
 ---
 
 ## ✨ Highlights
-
-<table>
-<tr>
-<td width="50%">
-
-### 🚀 Linear Complexity
-Unlike previous MIL methods with **O(N)** complexity, PathRWKV achieves **O(1)** linear complexity through the RWKV architecture, enabling efficient processing of slides with **100,000+ tiles**.
-
-</td>
-<td width="50%">
-
-### ⚡ State-Space Efficiency
-Leveraging recurrent state-space models, PathRWKV maintains a **constant memory footprint** during inference, regardless of sequence length.
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### 🎯 Multi-Task Learning
-Support for **classification**, **regression**, and **survival analysis** tasks with a unified architecture and task-specific heads.
-
-</td>
-<td width="50%">
-
-### 🔧 Custom CUDA Kernels
-Optimized WKV-6 CUDA kernels for **parallel training** and **state-based inference**, achieving up to **3x speedup** over vanilla implementations.
-
-</td>
-</tr>
-</table>
+### ⚡ Asymmetric Structure: Constant Memory Footprint 
+Unlike previous MIL methods with linear ($O(N)$) spatial complexity, PathRWKV achieves constant ($O(1)$) space complexity, enabling efficient processing of slides with **100,000+ tiles** on memory constrained edge devices.
 
 <p align="center">
-  <img src="assets/complexity_comparison.png" alt="Complexity Comparison" width="70%">
+  <img src="assets/asymmetric.png" alt="Asymmetric Structure">
   <br>
-  <em>Memory and computation comparison with attention-based methods</em>
+  <em>Asymmetric structure and GPU memory footprint comparison during inference</em>
 </p>
 
 ---
@@ -87,81 +50,52 @@ Optimized WKV-6 CUDA kernels for **parallel training** and **state-based inferen
 ## 🏗️ Architecture
 
 <p align="center">
-  <img src="assets/architecture.png" alt="PathRWKV Architecture" width="90%">
+  <img src="assets/overview.png" alt="PathRWKV Overview">
+  <br>
+  <em>Overview of PathRWKV architecture</em>
 </p>
 
-### Core Components
-
-```
-PathRWKV/
-├── 🔄 Time-Mix Module          # Temporal feature mixing with linear attention
-│   ├── DDLerp Interpolation    # Data-dependent linear interpolation
-│   ├── WKV-6 Computation       # Efficient state-space attention
-│   └── Gated Output            # Adaptive feature gating
-│
-├── 🧬 Channel-Mix Module       # Channel-wise feature transformation
-│   ├── Squared ReLU            # Enhanced non-linearity
-│   └── Gated Aggregation       # Selective information flow
-│
-├── 📍 Position Encoding        # 2D sinusoidal spatial embeddings
-│   └── Slide-aware PE          # Coordinate-based position encoding
-│
-└── 🎯 Multi-Task Head          # Task-specific prediction heads
-    ├── Classification          # Softmax cross-entropy
-    ├── Regression              # Smooth L1 loss
-    └── Survival                # Cox partial likelihood
-```
 
 ### Key Innovations
 
-| Component                 | Description                                         | Benefit                          |
-| ------------------------- | --------------------------------------------------- | -------------------------------- |
-| **WKV-6**                 | Weighted Key-Value attention with linear complexity | Scales to 100K+ tiles            |
-| **DDLerp**                | Data-dependent linear interpolation                 | Adaptive feature mixing          |
-| **State-based Inference** | Chunked processing with state propagation           | Constant memory usage            |
-| **MTL Module**            | Multi-task learning with shared backbone            | Efficient multi-label prediction |
+| Component                                        | Description                                                           | Benefit                                                                                                            |
+| ------------------------------------------------ | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Asymmetric Structure & Max Pooling**           | Parallelized training and sequential inference                        | Maintain high efficiency during training and low GPU memory footprint during inference                             |
+| **Random Sampling & Multi-Task Learning Module** | Dynamic data augmentation technique and auxiliary supervision signals | Exploit the potential of limited annotations and bolster model generalizability                                    |
+| **2D Sinusoidal Positional Encoding**            | Embed unique coordinate-based information                             | Bridge the gap between sampling-based training and sequential inference                                            |
+| **TimeMix and ChannelMix Modules**               | Dynamically caputuring data-dependent multi-scale features            | Ensure modeling both fine-grained cellular details and coarse-grained global tissue heterogeneity across the slide |
 
 ---
 
 ## 🛠️ Installation
 
 ### Prerequisites
+- **GPU**: NVIDIA GPU with CUDA 12.0+ (12.8 Recommended)
+- **Python**: 3.12+ (3.12.12 Recommended)
+- **PyTorch**: 2.9+ (2.9.1 Recommended)
 
-- **OS**: Linux (Ubuntu 20.04+) / macOS / Windows with WSL2
-- **GPU**: NVIDIA GPU with CUDA 12.0+ (Compute Capability 7.0+)
-- **Python**: 3.12+
-
-### Option 1: Conda Environment (Recommended)
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/PathRWKV.git
-cd PathRWKV
-
-# Create conda environment
-conda env create -f environment.yaml
-conda activate pathrwkv_env
-
-# Install Python dependencies
-uv pip install -e .
-```
-
-### Option 2: Docker
-
-```bash
-# Build Docker image
-docker build -t pathrwkv .
-
-# Run with GPU support
-docker run --gpus all -it -v /path/to/data:/data pathrwkv
-```
-
-### Option 3: Google Colab
+### Demo on Google Colab
 
 Click the badge below to open the demo notebook in Google Colab:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-username/PathRWKV/blob/main/demo.ipynb)
 
+### Mamba/Conda Environment
+
+```bash
+# Clone the repository
+git clone https://github.com/Puzzle-Logic/PathRWKV.git
+cd PathRWKV
+
+# Create mamba/conda environment
+mamba env create -f environment.yaml
+mamba activate pathrwkv_env
+# conda env create -f environment.yaml
+# conda activate pathrwkv_env
+
+# Install Python dependencies
+uv pip install -r pyproject.toml
+```
 ---
 
 ## 🚀 Quick Start
@@ -209,7 +143,7 @@ from DownStream.utils.pipeline import WSIPipeline
 
 # Load model
 model = WSIPipeline.load_from_checkpoint("checkpoints/best.ckpt")
-model.eval().cuda()
+model.eval().bfloat16().cuda()
 
 # Load slide embedding
 with safe_open("slide.safetensors", framework="pt", device="cuda") as f:
@@ -217,7 +151,7 @@ with safe_open("slide.safetensors", framework="pt", device="cuda") as f:
     coords = f.get_tensor("coords_yx").unsqueeze(0)
 
 # Inference
-with torch.no_grad():
+with torch.inference_mode():
     predictions = model(features, coords)
     print(f"Prediction: {predictions}")
 ```
@@ -257,48 +191,23 @@ PathRWKV/
 
 ## 📊 Results
 
-### Benchmark Comparison
+### Performance Comparison
 
 <p align="center">
-  <img src="assets/results_table.png" alt="Results Table" width="90%">
+  <img src="assets/results.png" alt="Results Table">
 </p>
 
-#### CAMELYON16 (Breast Cancer Metastasis Detection)
-
-|    Method    |    AUC    | Accuracy  |    F1     |  Params  |
-| :----------: | :-------: | :-------: | :-------: | :------: |
-|    ABMIL     |   0.865   |   0.847   |   0.823   |   1.2M   |
-|   TransMIL   |   0.912   |   0.889   |   0.876   |   2.7M   |
-|   DTFD-MIL   |   0.923   |   0.901   |   0.892   |   3.1M   |
-| **PathRWKV** | **0.941** | **0.918** | **0.909** | **1.8M** |
-
-#### PANDA (Prostate Cancer Grading)
-
-|    Method    | Quadratic Kappa |    AUC    | Accuracy  |
-| :----------: | :-------------: | :-------: | :-------: |
-|    ABMIL     |      0.824      |   0.876   |   0.712   |
-|   TransMIL   |      0.867      |   0.912   |   0.756   |
-| **PathRWKV** |    **0.892**    | **0.934** | **0.783** |
-
-#### TCGA-LUNG (Lung Cancer Subtyping)
-
-|    Method    |    AUC    | Accuracy  |    F1     |
-| :----------: | :-------: | :-------: | :-------: |
-|   CLAM-SB    |   0.945   |   0.912   |   0.908   |
-|   TransMIL   |   0.956   |   0.923   |   0.919   |
-| **PathRWKV** | **0.967** | **0.938** | **0.934** |
-
-### Efficiency Analysis
+### Efficiency Comparison
 
 <p align="center">
-  <img src="assets/efficiency.png" alt="Efficiency Analysis" width="80%">
+  <img src="assets/comparison.png" alt="Efficiency Comparison">
 </p>
 
-|    Method    | Memory (GB) @ 10K tiles | Time (s) @ 10K tiles | Scalability |
-| :----------: | :---------------------: | :------------------: | :---------: |
-|   TransMIL   |          24.3           |         2.84         |    O(N²)    |
-|   DTFD-MIL   |          18.7           |         2.12         |    O(N²)    |
-| **PathRWKV** |         **4.2**         |       **0.67**       |  **O(N)**   |
+### CAM Visualization
+
+<p align="center">
+  <img src="assets/cam.png" alt="CAM Visualization">
+</p>
 
 ---
 
@@ -307,24 +216,16 @@ PathRWKV/
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="assets/datasets/camelyon16.png" width="100"><br>
+<img src="assets/camelyon16.jpg" width="100"><br>
 <b>CAMELYON16</b><br>
-<sub>Breast Cancer Metastasis</sub>
 </td>
 <td align="center" width="20%">
-<img src="assets/datasets/panda.png" width="100"><br>
+<img src="assets/panda.jpg" width="100"><br>
 <b>PANDA</b><br>
-<sub>Prostate Cancer Grading</sub>
 </td>
 <td align="center" width="20%">
-<img src="assets/datasets/tcga.png" width="100"><br>
-<b>TCGA</b><br>
-<sub>Multi-Cancer Analysis</sub>
-</td>
-<td align="center" width="20%">
-<img src="assets/datasets/custom.png" width="100"><br>
-<b>Custom</b><br>
-<sub>Your Own Dataset</sub>
+<img src="assets/tcga.jpg" width="100"><br>
+<b>TCGAs</b><br>
 </td>
 </tr>
 </table>
@@ -368,32 +269,11 @@ label_dict:
 
 ### Model Hyperparameters
 
-| Parameter      | Default | Description                 |
-| -------------- | ------- | --------------------------- |
-| `embed_dim`    | `768`   | Model embedding dimension   |
-| `n_layers`     | `2`     | Number of RWKV blocks       |
-| `head_size`    | `64`    | Attention head size         |
-| `slide_ngrids` | `1200`  | Position encoding grid size |
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-```bash
-# Fork and clone
-git clone https://github.com/your-username/PathRWKV.git
-
-# Create feature branch
-git checkout -b feature/amazing-feature
-
-# Make changes and commit
-git commit -m "Add amazing feature"
-
-# Push and create PR
-git push origin feature/amazing-feature
-```
+| Parameter   | Default | Description               |
+| ----------- | ------- | ------------------------- |
+| `embed_dim` | `768`   | Model embedding dimension |
+| `n_layers`  | `2`     | Number of RWKV blocks     |
+| `head_size` | `64`    | Attention head size       |
 
 ---
 
@@ -402,12 +282,11 @@ git push origin feature/amazing-feature
 If you find this work useful, please cite our paper:
 
 ```bibtex
-@article{pathRWKV2024,
-  title={PathRWKV: Linear Complexity Multiple Instance Learning for Computational Pathology},
-  author={Author, First and Author, Second},
-  journal={IEEE Transactions on Medical Imaging},
-  year={2024},
-  publisher={IEEE}
+@article{chen2025pathrwkv,
+  title={PathRWKV: Enabling Whole Slide Prediction with Recurrent-Transformer},
+  author={Chen, Sicheng and Zhang, Tianyi and Liao, Dankai and Li, Dandan and Han, Low Chang and Jiang, Yanqin and Jin, Yueming and Lyu, Shangqing},
+  journal={arXiv preprint arXiv:2503.03199},
+  year={2025}
 }
 ```
 
@@ -424,6 +303,11 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 <table>
 <tr>
 <td align="center">
+<a href="https://github.com/Puzzle-Logic/UnPuzzle">
+<img src="https://img.shields.io/badge/Un-Puzzle-yellow?style=flat-square" alt="UnPuzzle">
+</a>
+<br><sub>Training Pipeline</sub>
+<td align="center">
 <a href="https://github.com/BlinkDL/RWKV-LM">
 <img src="https://img.shields.io/badge/RWKV-LM-blue?style=flat-square" alt="RWKV-LM">
 </a>
@@ -435,12 +319,6 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 </a>
 <br><sub>Foundation Model</sub>
 </td>
-<td align="center">
-<a href="https://github.com/Lightning-AI/lightning">
-<img src="https://img.shields.io/badge/PyTorch-Lightning-purple?style=flat-square" alt="Lightning">
-</a>
-<br><sub>Training Framework</sub>
-</td>
 </tr>
 </table>
 
@@ -451,17 +329,15 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 **⭐ Star us on GitHub — it motivates us a lot!**
 
 <p>
-  <a href="https://github.com/your-username/PathRWKV/stargazers">
-    <img src="https://img.shields.io/github/stars/your-username/PathRWKV?style=social" alt="Stars">
+  <a href="https://github.com/Puzzle-Logic/PathRWKV/stargazers">
+    <img src="https://img.shields.io/github/stars/Puzzle-Logic/PathRWKV?style=social" alt="Stars">
   </a>
-  <a href="https://github.com/your-username/PathRWKV/network/members">
-    <img src="https://img.shields.io/github/forks/your-username/PathRWKV?style=social" alt="Forks">
+  <a href="https://github.com/Puzzle-Logic/PathRWKV/network/members">
+    <img src="https://img.shields.io/github/forks/Puzzle-Logic/PathRWKV?style=social" alt="Forks">
   </a>
-  <a href="https://github.com/your-username/PathRWKV/watchers">
-    <img src="https://img.shields.io/github/watchers/your-username/PathRWKV?style=social" alt="Watchers">
+  <a href="https://github.com/Puzzle-Logic/PathRWKV/watchers">
+    <img src="https://img.shields.io/github/watchers/Puzzle-Logic/PathRWKV?style=social" alt="Watchers">
   </a>
 </p>
-
-Made with ❤️ by the PathRWKV Team
 
 </div>
