@@ -73,7 +73,7 @@ class StreamingTileDataset(IterableDataset):
             yield from self.process_slide(slide_id)
 
 
-def get_model(model_name, pretrained, device=None, compile_model=True, fp16=False):
+def get_model(model_name, pretrained, device=None, compile_model=True):
     model = timm.create_model(
         model_name,
         num_classes=0,
@@ -81,7 +81,6 @@ def get_model(model_name, pretrained, device=None, compile_model=True, fp16=Fals
         checkpoint_path=pretrained if isinstance(pretrained, str) else None,
     )
     model = model.eval().to(device)
-    model = model.float16() if fp16 else model.bfloat16()
     model = torch.compile(model) if compile_model else model
     return model
 
@@ -134,8 +133,7 @@ def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus)
         model_name=args.model_name,
         pretrained=args.pretrained,
         device=device,
-        compile_model=args.compile_model,
-        fp16=args.fp16,
+        compile_model=not args.disable_compile,
     )
     global_bar = None
     monitor_thread = None
@@ -196,9 +194,10 @@ def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus)
     with torch.inference_mode():
         for batch in dataloader:
             images, ys, xs, slide_ids, total_tiles_batch = batch
-
             images = images.to(device, non_blocking=True)
-            with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
+            inference_dtype = torch.bfloat16 if args.bf16 else torch.float16
+            print(f"Using {inference_dtype} precision")
+            with torch.autocast(device_type="cuda", dtype=inference_dtype):
                 features = model(images)
             features_cpu = features.cpu()
             unique_slides = set(slide_ids)
@@ -316,8 +315,8 @@ def parse_args():
         "--model_name", type=str, default="hf_hub:prov-gigapath/prov-gigapath"
     )
     parser.add_argument("--pretrained", type=Union[str, bool], default=True)
-    parser.add_argument("--compile_model", action="store_false")
-    parser.add_argument("--fp16", action="store_true")
+    parser.add_argument("--disable_compile", action="store_true")
+    parser.add_argument("--bf16", action="store_false")
     args = parser.parse_args()
     return args
 
