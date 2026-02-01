@@ -21,22 +21,28 @@ torch.set_float32_matmul_precision("high")
 
 
 class StreamingTileDataset(IterableDataset):
-    def __init__(self, slide_dirs, transform=None):
-        self.slide_dirs = slide_dirs
+    def __init__(self, slide_ids, input_dir, transform=None):
+        self.slide_ids = slide_ids
+        self.input_dir = Path(input_dir)
         self.transform = transform
+        self._df_cache = None
 
-    def process_slide(self, slide_dir):
+    def _get_df(self):
+        if self._df_cache is None:
+            self._df_cache = pl.read_csv(self.input_dir / "dataset.csv")
+        return self._df_cache
+
+    def process_slide(self, slide_id):
         try:
-            df = pl.read_csv(slide_dir / "dataset.csv")
+            df = self._get_df().filter(pl.col("slide_id") == slide_id)
             paths = df["tile_image_path"].to_list()
             ys = df["tile_y"].to_list()
             xs = df["tile_x"].to_list()
-            slide_name = slide_dir.name
 
             total_tiles = len(paths)
 
             for i in range(total_tiles):
-                img_path = slide_dir.parent / paths[i]
+                img_path = self.input_dir / paths[i]
                 try:
                     img = Image.open(img_path).convert("RGB")
                 except Exception:
@@ -45,29 +51,29 @@ class StreamingTileDataset(IterableDataset):
                 if self.transform:
                     img = self.transform(img)
 
-                yield img, ys[i], xs[i], slide_name, total_tiles
+                yield img, ys[i], xs[i], slide_id, total_tiles
 
         except Exception as e:
-            print(f"Error reading slide {slide_dir}: {e}")
+            print(f"Error reading slide {slide_id}: {e}")
 
     def __iter__(self):
         worker_info = get_worker_info()
         if worker_info is None:
-            my_slides = self.slide_dirs
+            my_slides = self.slide_ids
         else:
             per_worker = int(
-                math.ceil(len(self.slide_dirs) / float(worker_info.num_workers))
+                math.ceil(len(self.slide_ids) / float(worker_info.num_workers))
             )
             worker_id = worker_info.id
             iter_start = worker_id * per_worker
-            iter_end = min(iter_start + per_worker, len(self.slide_dirs))
-            my_slides = self.slide_dirs[iter_start:iter_end]
+            iter_end = min(iter_start + per_worker, len(self.slide_ids))
+            my_slides = self.slide_ids[iter_start:iter_end]
 
-        for slide_dir in my_slides:
-            yield from self.process_slide(slide_dir)
+        for slide_id in my_slides:
+            yield from self.process_slide(slide_id)
 
 
-def get_model(model_name, pretrained, device=None, compile_model=True, fp32=False):
+def get_model(model_name, pretrained, device=None, compile_model=True, fp16=False):
     model = timm.create_model(
         model_name,
         num_classes=0,
@@ -75,7 +81,7 @@ def get_model(model_name, pretrained, device=None, compile_model=True, fp32=Fals
         checkpoint_path=pretrained if isinstance(pretrained, str) else None,
     )
     model = model.eval().to(device)
-    model = model.bfloat16() if not fp32 else model
+    model = model.float16() if fp16 else model.bfloat16()
     model = torch.compile(model) if compile_model else model
     return model
 
@@ -113,7 +119,8 @@ def flush_buffer_async(
 def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus):
     device_id = rank
     device = torch.device(f"cuda:{device_id}")
-    my_slide_dirs = slide_chunks[rank]
+    my_slide_ids = slide_chunks[rank]
+    input_dir = Path(args.input_dir)
 
     transform = T.Compose(
         [
@@ -128,7 +135,7 @@ def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus)
         pretrained=args.pretrained,
         device=device,
         compile_model=args.compile_model,
-        fp32=args.fp32,
+        fp16=args.fp16,
     )
     global_bar = None
     monitor_thread = None
@@ -153,8 +160,8 @@ def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     pending_slides_for_this_gpu = []
-    for s in my_slide_dirs:
-        if (output_dir / f"{s.name}.safetensors").exists():
+    for s in my_slide_ids:
+        if (output_dir / f"{s}.safetensors").exists():
             with global_counter.get_lock():
                 global_counter.value += 1
         else:
@@ -171,7 +178,9 @@ def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus)
 
         return
 
-    dataset = StreamingTileDataset(pending_slides_for_this_gpu, transform=transform)
+    dataset = StreamingTileDataset(
+        pending_slides_for_this_gpu, input_dir, transform=transform
+    )
     dataloader = DataLoader(
         dataset,
         batch_size=args.batch_size,
@@ -225,7 +234,6 @@ def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus)
 
                 slide_buffers[s_name]["count"] += count_in_batch
 
-                # Flush if complete
                 if slide_buffers[s_name]["count"] >= slide_buffers[s_name]["total"]:
                     flush_buffer_async(
                         slide_buffers[s_name]["features"],
@@ -250,15 +258,17 @@ def main(args):
     output_dir = Path(args.output_dir)
 
     print("Scanning slides...")
-    all_slide_dirs = sorted([p.parent for p in input_dir.glob("*/dataset.csv")])
-    total_slides = len(all_slide_dirs)
+    main_csv = input_dir / "dataset.csv"
+    df = pl.read_csv(main_csv)
+    all_slide_ids = sorted(df["slide_id"].unique().to_list())
+    total_slides = len(all_slide_ids)
 
     processed_ids = set()
     if output_dir.exists():
         processed_ids = {f.stem for f in output_dir.glob("*.safetensors")}
 
-    pending_slide_dirs = [p for p in all_slide_dirs if p.name not in processed_ids]
-    num_pending = len(pending_slide_dirs)
+    pending_slide_ids = [s for s in all_slide_ids if s not in processed_ids]
+    num_pending = len(pending_slide_ids)
 
     print(
         f"Total: {total_slides}, Processed: {len(processed_ids)}, Pending: {num_pending}"
@@ -279,7 +289,7 @@ def main(args):
         start = i * chunk_size
         end = min((i + 1) * chunk_size, num_pending)
         if start < num_pending:
-            slide_chunks.append(pending_slide_dirs[start:end])
+            slide_chunks.append(pending_slide_ids[start:end])
         else:
             slide_chunks.append([])
 
@@ -307,7 +317,7 @@ def parse_args():
     )
     parser.add_argument("--pretrained", type=Union[str, bool], default=True)
     parser.add_argument("--compile_model", action="store_false")
-    parser.add_argument("--fp32", action="store_true")
+    parser.add_argument("--fp16", action="store_true")
     args = parser.parse_args()
     return args
 
