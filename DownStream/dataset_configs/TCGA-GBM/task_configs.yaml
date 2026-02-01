@@ -1,0 +1,127 @@
+all_task_dict:
+  OS: surv
+  DFS: surv
+  AGE: reg
+  DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS: reg
+  ECOG_SCORE: reg
+  ETHNICITY: cls
+  HISTOLOGICAL_DIAGNOSIS: cls
+  HISTORY_LGG_DX_OF_BRAIN_TISSUE: cls
+  HISTORY_NEOADJUVANT_TRTYN: cls
+  HISTORY_OTHER_MALIGNANCY: cls
+  ICD_10: cls
+  ICD_O_3_SITE: cls
+  INITIAL_PATHOLOGIC_DX_YEAR: reg
+  KARNOFSKY_PERFORMANCE_SCORE: reg
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT: cls
+  PERFORMANCE_STATUS_TIMING: cls
+  PHARMACEUTICAL_TX_ADJUVANT: cls
+  PROSPECTIVE_COLLECTION: cls
+  RACE: cls
+  RADIATION_TREATMENT_ADJUVANT: cls
+  RETROSPECTIVE_COLLECTION: cls
+  SAMPLE_COUNT: reg
+  SEX: cls
+  SLIDE_TYPE: cls
+  TISSUE_SOURCE_SITE: cls
+  TREATMENT_OUTCOME_FIRST_COURSE: cls
+  TUMOR_STATUS: cls
+tasks_to_run:
+- HISTOLOGICAL_DIAGNOSIS
+- OS_MONTHS
+label_dict:
+  DFS_STATUS:
+    0:DiseaseFree: 0
+    1:Recurred/Progressed: 1
+  ETHNICITY:
+    HISPANIC OR LATINO: 0
+    NOT HISPANIC OR LATINO: 1
+  HISTOLOGICAL_DIAGNOSIS:
+    Glioblastoma Multiforme (GBM): 0
+    Treated primary GBM: 1
+    Untreated primary (de novo) GBM: 2
+  HISTORY_LGG_DX_OF_BRAIN_TISSUE:
+    'NO': 0
+    'YES': 1
+  HISTORY_NEOADJUVANT_TRTYN:
+    'No': 0
+    'Yes': 1
+  HISTORY_OTHER_MALIGNANCY:
+    'No': 0
+    Yes, History of Prior Malignancy: 1
+  ICD_10:
+    C71.1: 0
+    C71.2: 1
+    C71.9: 2
+  ICD_O_3_SITE:
+    C71.1: 0
+    C71.2: 1
+    C71.9: 2
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT:
+    Excisional Biopsy: 0
+    Fine needle aspiration biopsy: 1
+    Incisional Biopsy: 2
+    'Other method, specify:': 3
+    Tumor resection: 4
+  OS_STATUS:
+    0:LIVING: 0
+    1:DECEASED: 1
+  PERFORMANCE_STATUS_TIMING:
+    Other: 0
+    Post-Adjuvant Therapy: 1
+    Pre-Adjuvant Therapy: 2
+    Preoperative: 3
+  PHARMACEUTICAL_TX_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  PROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  RACE:
+    ASIAN: 0
+    BLACK OR AFRICAN AMERICAN: 1
+    WHITE: 2
+  RADIATION_TREATMENT_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  RETROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  SEX:
+    Female: 0
+    Male: 1
+  SLIDE_TYPE:
+    DX1: 0
+    DX2: 1
+    DX3: 2
+    DX4: 3
+    DX5: 4
+    DX6: 5
+    DX7: 6
+    DX8: 7
+    DX9: 8
+  TISSUE_SOURCE_SITE:
+    '12': 0
+    '14': 1
+    '15': 2
+    '19': 3
+    '2': 4
+    '26': 5
+    '27': 6
+    '28': 7
+    '41': 8
+    4W: 9
+    '6': 10
+    '8': 11
+    '81': 12
+    '87': 13
+    OX: 14
+    RR: 15
+  TREATMENT_OUTCOME_FIRST_COURSE:
+    Complete Remission/Response: 0
+    Partial Remission/Response: 1
+    Progressive Disease: 2
+    Stable Disease: 3
+  TUMOR_STATUS:
+    TUMOR FREE: 0
+    WITH TUMOR: 1

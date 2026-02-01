@@ -1,0 +1,9 @@
+all_task_dict:
+  CRC_TUMOR: cls
+tasks_to_run:
+- CRC_TUMOR
+label_dict:
+  CRC_TUMOR:
+    High-grade lesions: 0
+    Low-grade lesions: 1
+    Non-neoplastic: 2

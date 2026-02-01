@@ -1,0 +1,9 @@
+name: pathrwkv_env
+channels:
+  - nvidia
+  - conda-forge
+
+dependencies:
+  - python=3.12.12
+  - uv
+  - nvidia::cuda-toolkit=12.8

@@ -1,0 +1,1122 @@
+all_task_dict:
+  OS: surv
+  DFS: surv
+  AGE: reg
+  AJCC_METASTASIS_PATHOLOGIC_PM: cls
+  AJCC_NODES_PATHOLOGIC_PN: cls
+  AJCC_PATHOLOGIC_TUMOR_STAGE: cls
+  AJCC_PATHOLOGIC_TUMOR_STAGE_reduced: cls
+  AJCC_STAGING_EDITION: cls
+  AJCC_TUMOR_PATHOLOGIC_PT: cls
+  BRACHYTHERAPY_TOTAL_DOSE_POINT_A: cls
+  CENT17_COPY_NUMBER: cls
+  DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS: reg
+  ER_POSITIVITY_SCALE_OTHER: cls
+  ER_POSITIVITY_SCALE_USED: cls
+  ER_STATUS_BY_IHC: cls
+  ER_STATUS_IHC_PERCENT_POSITIVE: cls
+  ETHNICITY: cls
+  FIRST_SURGICAL_PROCEDURE_OTHER: cls
+  HER2_AND_CENT17_CELLS_COUNT: reg
+  HER2_AND_CENT17_SCALE_OTHER: cls
+  HER2_CENT17_RATIO: reg
+  HER2_COPY_NUMBER: cls
+  HER2_FISH_METHOD: cls
+  HER2_FISH_STATUS: cls
+  HER2_IHC_PERCENT_POSITIVE: cls
+  HER2_IHC_SCORE: reg
+  HER2_POSITIVITY_METHOD_TEXT: cls
+  HER2_POSITIVITY_SCALE_OTHER: cls
+  HISTOLOGICAL_DIAGNOSIS: cls
+  HISTOLOGICAL_SUBTYPE: cls
+  HISTORY_NEOADJUVANT_TRTYN: cls
+  HISTORY_OTHER_MALIGNANCY: cls
+  ICD_10: cls
+  ICD_O_3_HISTOLOGY: cls
+  ICD_O_3_SITE: cls
+  IHC_HER2: cls
+  IHC_SCORE: reg
+  INITIAL_PATHOLOGIC_DX_YEAR: reg
+  LYMPH_NODES_EXAMINED: cls
+  LYMPH_NODES_EXAMINED_HE_COUNT: reg
+  LYMPH_NODES_EXAMINED_IHC_COUNT: reg
+  LYMPH_NODE_EXAMINED_COUNT: reg
+  MARGIN_STATUS_REEXCISION: cls
+  MENOPAUSE_STATUS: cls
+  METASTATIC_SITE_OTHER: cls
+  METASTATIC_SITE_PATIENT: cls
+  METASTATIC_TUMOR_INDICATOR: cls
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT: cls
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER: cls
+  MICROMET_DETECTION_BY_IHC: cls
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT: cls
+  NTE_CENT_17_HER2_RATIO: reg
+  NTE_ER_STATUS: cls
+  NTE_ER_STATUS_IHC_POSITIVE: cls
+  NTE_HER2_POSITIVITY_IHC_SCORE: cls
+  NTE_HER2_STATUS: cls
+  NTE_PR_IHC_INTENSITY_SCORE: reg
+  NTE_PR_STATUS_BY_IHC: cls
+  PATH_MARGIN: cls
+  PHARMACEUTICAL_TX_ADJUVANT: cls
+  PRIMARY_SITE_PATIENT: cls
+  PROSPECTIVE_COLLECTION: cls
+  PR_POSITIVITY_DEFINE_METHOD: cls
+  PR_POSITIVITY_IHC_INTENSITY_SCORE: cls
+  PR_POSITIVITY_SCALE_OTHER: cls
+  PR_POSITIVITY_SCALE_USED: cls
+  PR_STATUS_BY_IHC: cls
+  PR_STATUS_IHC_PERCENT_POSITIVE: cls
+  RACE: cls
+  RADIATION_TREATMENT_ADJUVANT: cls
+  RETROSPECTIVE_COLLECTION: cls
+  SAMPLE_COUNT: reg
+  SEX: cls
+  SLIDE_TYPE: cls
+  STAGING_SYSTEM: cls
+  STAGING_SYSTEM_OTHER: cls
+  SURGERY_FOR_POSITIVE_MARGINS: cls
+  SURGERY_FOR_POSITIVE_MARGINS_OTHER: cls
+  SURGICAL_PROCEDURE_FIRST: cls
+  TISSUE_SOURCE_SITE: cls
+  TUMOR_STATUS: cls
+tasks_to_run:
+- AGE
+- AJCC_METASTASIS_PATHOLOGIC_PM
+- AJCC_NODES_PATHOLOGIC_PN
+- AJCC_PATHOLOGIC_TUMOR_STAGE
+- AJCC_STAGING_EDITION
+- AJCC_TUMOR_PATHOLOGIC_PT
+- BRACHYTHERAPY_TOTAL_DOSE_POINT_A
+- CENT17_COPY_NUMBER
+- DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS
+- DFS_MONTHS
+- DFS_STATUS
+- ER_POSITIVITY_SCALE_OTHER
+- ER_POSITIVITY_SCALE_USED
+- ER_STATUS_BY_IHC
+- ER_STATUS_IHC_PERCENT_POSITIVE
+- ETHNICITY
+- FIRST_SURGICAL_PROCEDURE_OTHER
+- HER2_AND_CENT17_CELLS_COUNT
+- HER2_AND_CENT17_SCALE_OTHER
+- HER2_CENT17_RATIO
+- HER2_COPY_NUMBER
+- HER2_FISH_METHOD
+- HER2_FISH_STATUS
+- HER2_IHC_PERCENT_POSITIVE
+- HER2_IHC_SCORE
+- HER2_POSITIVITY_METHOD_TEXT
+- HER2_POSITIVITY_SCALE_OTHER
+- HISTOLOGICAL_DIAGNOSIS
+- HISTOLOGICAL_SUBTYPE
+- HISTORY_NEOADJUVANT_TRTYN
+- HISTORY_OTHER_MALIGNANCY
+- ICD_10
+- ICD_O_3_HISTOLOGY
+- ICD_O_3_SITE
+- IHC_HER2
+- IHC_SCORE
+- INITIAL_PATHOLOGIC_DX_YEAR
+- LYMPH_NODES_EXAMINED
+- LYMPH_NODES_EXAMINED_HE_COUNT
+- LYMPH_NODES_EXAMINED_IHC_COUNT
+- LYMPH_NODE_EXAMINED_COUNT
+- MARGIN_STATUS_REEXCISION
+- MENOPAUSE_STATUS
+- METASTATIC_SITE_OTHER
+- METASTATIC_SITE_PATIENT
+- METASTATIC_TUMOR_INDICATOR
+- METHOD_OF_INITIAL_SAMPLE_PROCUREMENT
+- METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER
+- MICROMET_DETECTION_BY_IHC
+- NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT
+- NTE_CENT_17_HER2_RATIO
+- NTE_ER_STATUS
+- NTE_ER_STATUS_IHC_POSITIVE
+- NTE_HER2_POSITIVITY_IHC_SCORE
+- NTE_HER2_STATUS
+- NTE_PR_IHC_INTENSITY_SCORE
+- NTE_PR_STATUS_BY_IHC
+- OS_MONTHS
+- OS_STATUS
+- PATH_MARGIN
+- PHARMACEUTICAL_TX_ADJUVANT
+- PRIMARY_SITE_PATIENT
+- PROSPECTIVE_COLLECTION
+- PR_POSITIVITY_DEFINE_METHOD
+- PR_POSITIVITY_IHC_INTENSITY_SCORE
+- PR_POSITIVITY_SCALE_OTHER
+- PR_POSITIVITY_SCALE_USED
+- PR_STATUS_BY_IHC
+- PR_STATUS_IHC_PERCENT_POSITIVE
+- RACE
+- RADIATION_TREATMENT_ADJUVANT
+- RETROSPECTIVE_COLLECTION
+- SAMPLE_COUNT
+- SEX
+- STAGING_SYSTEM
+- STAGING_SYSTEM_OTHER
+- SURGERY_FOR_POSITIVE_MARGINS
+- SURGERY_FOR_POSITIVE_MARGINS_OTHER
+- SURGICAL_PROCEDURE_FIRST
+- TISSUE_SOURCE_SITE
+- TUMOR_STATUS
+- SLIDE_TYPE
+- AJCC_PATHOLOGIC_TUMOR_STAGE_reduced
+label_dict:
+  AJCC_METASTASIS_PATHOLOGIC_PM:
+    M0: 0
+    M1: 1
+    MX: 2
+    cM0 (i+): 3
+  AJCC_NODES_PATHOLOGIC_PN:
+    N0: 0
+    N0 (i+): 1
+    N0 (i-): 2
+    N0 (mol+): 3
+    N1: 4
+    N1a: 5
+    N1b: 6
+    N1c: 7
+    N1mi: 8
+    N2: 9
+    N2a: 10
+    N3: 11
+    N3a: 12
+    N3b: 13
+    N3c: 14
+    NX: 15
+  AJCC_PATHOLOGIC_TUMOR_STAGE:
+    Stage I: 0
+    Stage IA: 1
+    Stage IB: 2
+    Stage II: 3
+    Stage IIA: 4
+    Stage IIB: 5
+    Stage III: 6
+    Stage IIIA: 7
+    Stage IIIB: 8
+    Stage IIIC: 9
+    Stage IV: 10
+    Stage X: 11
+  AJCC_PATHOLOGIC_TUMOR_STAGE_reduced:
+    Stage I: 0
+    Stage II: 1
+    Stage III: 2
+    Stage IV: 3
+  AJCC_STAGING_EDITION:
+    3rd: 0
+    4th: 1
+    5th: 2
+    6th: 3
+    7th: 4
+  AJCC_TUMOR_PATHOLOGIC_PT:
+    T1: 0
+    T1a: 1
+    T1b: 2
+    T1c: 3
+    T2: 4
+    T2a: 5
+    T2b: 6
+    T3: 7
+    T3a: 8
+    T4: 9
+    T4b: 10
+    T4d: 11
+    TX: 12
+  BRACHYTHERAPY_TOTAL_DOSE_POINT_A:
+    '% IHC': 0
+    '>10% STAINING = POSITIVE': 1
+    Allread score 5+3 = 8: 2
+    Allred 0 = 0+0: 3
+    Allred 7 = 5+2: 4
+    Allred 8 = 5+3: 5
+    Allred score 0+0 = 0: 6
+    Allred score 1+1 = 2: 7
+    Allred score 3 + 2 = 5: 8
+    Allred score 3+2 = 5: 9
+    Allred score 4+3=7: 10
+    Allred score 5+2 = 7: 11
+    Allred score 5+3 = 8: 12
+    Allred score 5+3= 8: 13
+    Allred score 5+3=8: 14
+    Allred score 7 (outside facility): 15
+    Allred score = 8: 16
+    CAP SCORING GUIDELINE 2010: 17
+    CAP scoring guideline 2010: 18
+    ER Positive H-Score 95: 19
+    H-SCORE 0: 20
+    H-SCORE 136: 21
+    H-SCORE 140: 22
+    H-SCORE 180: 23
+    H-SCORE 190: 24
+    H-SCORE 230: 25
+    H-SCORE 255: 26
+    H-SCORE 260: 27
+    H-SCORE 280: 28
+    H-SCORE 295: 29
+    H-SCORE 300: 30
+    H-Score 0: 31
+    H-Score 140: 32
+    H-Score 150: 33
+    H-Score 200: 34
+    H-Score 240: 35
+    H-Score 270: 36
+    H-Score 280: 37
+    H-Score 295: 38
+    H-Score 300: 39
+    H-Score-190: 40
+    IHC: 41
+    IMAGE ANALYSIS: 42
+    Image Analysis: 43
+    Immune Stain by GenPath: 44
+    Immunohistochemistry: 45
+    No value Given: 46
+    allred score 0 + 0 = 0: 47
+    allred score 5 + 3 = 8: 48
+    allred score 5+3=8: 49
+    dextran coated charcoal: 50
+    image cytometry: 51
+    manual counting: 52
+  CENT17_COPY_NUMBER:
+    '1.1': 0
+    '1.4': 1
+    '1.45': 2
+    '1.5': 3
+    '1.57': 4
+    '1.67': 5
+    '1.7': 6
+    '1.73': 7
+    '1.78': 8
+    '1.8': 9
+    '1.9': 10
+    '1.93': 11
+    '118': 12
+    '125': 13
+    '127': 14
+    '160': 15
+    '2': 16
+    '2.08': 17
+    '2.13': 18
+    '2.2': 19
+    '2.25': 20
+    '2.3': 21
+    '2.38': 22
+    '2.4': 23
+    '2.5': 24
+    '2.6': 25
+    '2.65': 26
+    '2.7': 27
+    '2.8': 28
+    '2.9': 29
+    '2.98': 30
+    '3': 31
+    '3.1': 32
+    '3.2': 33
+    '3.33': 34
+    '3.7': 35
+    '33': 36
+    '35': 37
+    '39': 38
+    '4': 39
+    '4.43': 40
+    '40': 41
+    '46': 42
+    '49': 43
+    '5': 44
+    '50': 45
+    '51': 46
+    '54': 47
+    '58': 48
+    '63': 49
+    '64': 50
+    '66': 51
+    '67': 52
+    '68': 53
+    '69': 54
+    '70': 55
+    '71': 56
+    '74': 57
+    '78': 58
+    polisomy: 59
+  DFS_STATUS:
+    0:DiseaseFree: 0
+    1:Recurred/Progressed: 1
+  ER_POSITIVITY_SCALE_OTHER:
+    '0': 0
+    0%: 1
+    10-75%: 2
+    '120': 3
+    '130': 4
+    '170': 5
+    '180': 6
+    '190': 7
+    '205': 8
+    '210': 9
+    '230': 10
+    240 H: 11
+    '250': 12
+    '260': 13
+    288 fmol/mg: 14
+    49 fmol/mg protein: 15
+    '7': 16
+    '8': 17
+    '80': 18
+    '>10%': 19
+    '>75%': 20
+    Allred: 21
+    Allred Score: 22
+    Allred Score 5: 23
+    Allred Score 6: 24
+    Allred Score 7: 25
+    Allred Score 8: 26
+    Allred Score = 7: 27
+    Allred score 5: 28
+    Allred score 7: 29
+    Allred score 7 (per outside facility): 30
+    Allred score 8: 31
+    Allred score = 0: 32
+    Allred score = 2: 33
+    Allred score = 5: 34
+    Allred score = 7: 35
+    Allred score = 8: 36
+    H Score: 37
+    H score: 38
+    H-SCORE: 39
+    H-Score: 40
+    Intensity=Strong: 41
+    Intensity=moderate: 42
+    MODERATE: 43
+    Moderate: 44
+    Moderate using scale of Weak, Moderate, Strong: 45
+    Moderate using the scale of Weak, Moderate, Strong: 46
+    Oncotype Dx test: 47
+    STRONG: 48
+    Strong: 49
+    Strong using Weak, Moderate and Strong: 50
+    Two-tier: 51
+    allred score = 0: 52
+    allred score = 7: 53
+    allred score = 8: 54
+    allred scrore = 8: 55
+    moderate: 56
+    moderately to strongly: 57
+    strong: 58
+  ER_POSITIVITY_SCALE_USED:
+    3 Point Scale: 0
+    4 Point Scale: 1
+  ER_STATUS_BY_IHC:
+    Indeterminate: 0
+    Negative: 1
+    Positive: 2
+  ER_STATUS_IHC_PERCENT_POSITIVE:
+    10-19%: 0
+    20-29%: 1
+    30-39%: 2
+    40-49%: 3
+    50-59%: 4
+    60-69%: 5
+    70-79%: 6
+    80-89%: 7
+    90-99%: 8
+    <10%: 9
+  ETHNICITY:
+    HISPANIC OR LATINO: 0
+    NOT HISPANIC OR LATINO: 1
+  FIRST_SURGICAL_PROCEDURE_OTHER:
+    Bilateral Mastectomy: 0
+    Bilateral skin sparing Mastectomy and Bilateral breast reconstruction with tissue expanders.: 1
+    EXCISION WITH NEEDLE WIRE LOCALIZATION: 2
+    Excision: 3
+    Excisional biopsy: 4
+    Excisional biospy: 5
+    Fine Needle aspiration biopsy: 6
+    Fine needle aspiration biopsy: 7
+    L Total Mastectomy: 8
+    Left segmental mastectomy with axillary lymph node dissection: 9
+    Left segmental mastectomy with left axillary lymph node dissection: 10
+    Left segmental mastectomy with level 1 and level 2 axillary dissection: 11
+    Mastectomy: 12
+    Modified Radical Masectomy: 13
+    Modified radical mastectomy with left breast biopsy: 14
+    Nipple Sparing Total Mastectomy: 15
+    Partial Mastectomy: 16
+    Partial mastectomy: 17
+    Patey's Surgery: 18
+    Pateys surgery: 19
+    Reexc of biopsy site for gross/micro residual disease: 20
+    Right Total Mastectomy and Sentinel Node Biopsy: 21
+    Right segmental mastectomy: 22
+    Right segmental mastectomy with sentinel lymph node and axillary lymph node biopsy: 23
+    Right total mastectomy with lymph node left axillary lymph node excision: 24
+    SKIN SPARING RADICAL MASTECTOMY: 25
+    Segmental Mastectomy: 26
+    Segmental mastectomy: 27
+    Segmental mastectomy with left axillary lymph node dissection: 28
+    Segmental mastectomy with sentinel axillary lymph node biopsy: 29
+    Segmental mastectomy with sentinel lymph node biopsy: 30
+    Segmental mastectomy with sentinel node biopsy: 31
+    Surgical Resection: 32
+    Surgical resection: 33
+    TOTAL MASTECTOMY: 34
+    Total Mastectomy: 35
+    Total mastectomy: 36
+    Total mastectomy with left sentinel lymph node biospy: 37
+    Total mastectomy with retromammary lymph node excision: 38
+    Total mastectomy with sentinel lymoh node biopsy: 39
+    Total mastectomy with sentinel lymph node biopsy: 40
+    Wide Excision: 41
+    Wide Local Excision: 42
+    Wide local excision: 43
+    Wide local excision and simple mastectomy: 44
+    Wide re-excisional biopsy: 45
+    bilateral total mastectomies with right sentinel node biopsy: 46
+    biopsy: 47
+    breast conserving therapy: 48
+    excisional biopsy: 49
+    left segmental mastectomy with axillary sentinel lymph node biopsy: 50
+    left segmental mastectomy with sentinel node dissection: 51
+    localized segmental mastectomy with axillary node dissection: 52
+    needle directed right breast biopsy with left segmental mastectomy with axillary lymph node dissection: 53
+    needle localized segmental mastectomy: 54
+    partial left mastectomy: 55
+    partial mastectomy: 56
+    right segmental mastectomy: 57
+    right segmental mastectomy witrh axillary node dissection: 58
+    right total mastectomy with sentinel lymph node dissection right reconstruction with TRAMP: 59
+    segmental mastectomy: 60
+    segmental mastectomy with axillary lymph node dissection: 61
+    segmental mastectomy with excision of mass on chest wall and axillary node dissection: 62
+    segmental mastectomy with right sentinel lymph node biopsy: 63
+    segmental mastectomy with sentinel lymph node biopsy: 64
+    segmental mastectomy with sentinel lymph node biopsy and wire localization: 65
+    segmental mastectomy with sentinel lymph node dissection: 66
+    segmental mastectomy with sentinel lymph node excision and biopsy: 67
+    total mastectomy: 68
+    total mastectomy and sentinel node biopsy: 69
+    total mastectomy with rigth axillary lymph node and sentinel lymph node dissection: 70
+    total mastectomy with sentinel lymph node biopsy with tissue reconstruction: 71
+    wide local excision: 72
+  HER2_AND_CENT17_SCALE_OTHER:
+    '1': 0
+    '>2.2 Positive': 1
+    HER2 amplification - negative: 2
+    Vysis AutoVysion System: 3
+  HER2_COPY_NUMBER:
+    '1': 0
+    '1.1': 1
+    '1.57': 2
+    '1.62': 3
+    '1.66': 4
+    '1.67': 5
+    '1.73': 6
+    '1.8': 7
+    '1.85': 8
+    '1.9': 9
+    '105': 10
+    '114': 11
+    '118': 12
+    '12.45': 13
+    '125': 14
+    '131': 15
+    '132': 16
+    '145': 17
+    '149': 18
+    '15': 19
+    '172': 20
+    '185': 21
+    '2': 22
+    '2.2': 23
+    '2.23': 24
+    '2.3': 25
+    '2.4': 26
+    '2.5': 27
+    '2.58': 28
+    '2.6': 29
+    '2.65': 30
+    '2.8': 31
+    '2.81': 32
+    '2.83': 33
+    '21': 34
+    '269': 35
+    '3': 36
+    '3.2': 37
+    '3.3': 38
+    '3.43': 39
+    '3.5': 40
+    '3.53': 41
+    '3.8': 42
+    '366': 43
+    '4.5': 44
+    '4.6': 45
+    '4.7': 46
+    '42': 47
+    '441': 48
+    '47': 49
+    '5': 50
+    '5.65': 51
+    '5.8': 52
+    '52': 53
+    '59': 54
+    '6.4': 55
+    '60': 56
+    '61': 57
+    '66': 58
+    '68': 59
+    '71': 60
+    '73': 61
+    '74': 62
+    '79': 63
+    '816': 64
+    <4.0: 65
+    '>6': 66
+    '>6.0': 67
+    not amplified: 68
+  HER2_FISH_METHOD:
+    '> = 2.0': 0
+    '>2.2 Positive': 1
+    '>= 2.0 Positive': 2
+    '>=2.0 Positive': 3
+    '>=2.2 Positive': 4
+    CAP SCORING GUIDELINE 2007: 5
+    CAP SCORING GUIDELINE 2010: 6
+    CAP scoring guideline 2010: 7
+    Enumerate 60 tumor cells; Ratio of HER2/Centromere 17 >=2.1 is amplified: 8
+    Enumerate 60 tumor cells; ratio HER2/Centromer 17 >= 2.1 is amplified: 9
+    Enumerate 60 tumor cells; ratio HER2/Centromere 17 >= 2.1 is amplified: 10
+    Enumerate 60 tumor cells; ratio of HER2/Centromere 17 >= 2.1 is amplified: 11
+    Enumerate 60 tumor cells; ratio of HER2/Centromere >=2.1 is amplified: 12
+    Path Vysion HER-2 DNA probe kit: 13
+    Path Vysion HER2 DNA Probe Kit: 14
+    PathVision HER2 DNA Probe Kit: 15
+    PathVysion: 16
+    PathVysion HER-2 DNA Probe Kit: 17
+    PathVysion HER-2 DNA Probe kit: 18
+    PathVysion HER-2 DNA probe kit.: 19
+    PathVysion Her-2 DNA: 20
+    Pathvysion HER-2 DNA Probe Kit: 21
+    Pathvysion HER2 DNA Probe Kit: 22
+    Positive >2.2: 23
+    RATIO > 2.2: 24
+    RATIO > = 2.0: 25
+    RATIO >EQUAL 2.0: 26
+    Ratio >=2.0: 27
+    Ratio >=2.2: 28
+    ratio > 2.2 is positive: 29
+  HER2_FISH_STATUS:
+    Equivocal: 0
+    Indeterminate: 1
+    Negative: 2
+    Positive: 3
+  HER2_IHC_PERCENT_POSITIVE:
+    10-19%: 0
+    20-29%: 1
+    30-39%: 2
+    40-49%: 3
+    50-59%: 4
+    60-69%: 5
+    70-79%: 6
+    80-89%: 7
+    90-99%: 8
+    <10%: 9
+  HER2_POSITIVITY_METHOD_TEXT:
+    + or -: 0
+    3+ POSITIVE: 1
+    3+ Positive: 2
+    CAP SCORING GUIDELINE 2010: 3
+    CAP scoring guideline 2010: 4
+    CAP scoring guidelines 2010: 5
+    CISH: 6
+    DAKO Hercep Test TM: 7
+    DAKOHercepTest TM: 8
+    Hecep Test TM DAKO: 9
+    Hercep Test  TM Dako: 10
+    Hercep Test TM DAKO: 11
+    HercepTest TM Dako: 12
+    HerceptTest TM Dako: 13
+    No membrane staining or incomplete membrane staining in <10% of tumor cells is negative: 14
+    Venten: 15
+    dextran coated charcoal: 16
+  HER2_POSITIVITY_SCALE_OTHER:
+    '0': 0
+    10-75%: 1
+    ACIS: 2
+    CISH: 3
+    Dako: 4
+    FISH: 5
+    Hercep Test  TM Dako: 6
+  HISTOLOGICAL_DIAGNOSIS:
+    Infiltrating Carcinoma NOS: 0
+    Infiltrating Ductal Carcinoma: 1
+    Infiltrating Lobular Carcinoma: 2
+    Medullary Carcinoma: 3
+    Metaplastic Carcinoma: 4
+    Mixed Histology (please specify): 5
+    Mucinous Carcinoma: 6
+    Other, specify: 7
+  HISTOLOGICAL_SUBTYPE:
+    Ductal/Lobular: 0
+    Infiltrating Tubulo-Lobular Carcinoma: 1
+    Infiltrating ductal & lobular: 2
+    Infiltrating ductal and lobular carcinoma: 3
+    Invasive ductal and lobular carcinoma: 4
+    Invasive mixed ductal and lobular carcinoma: 5
+    Lobular carcinoma with ductal features: 6
+    Lobular/Ductal: 7
+    Mixed infiltrating lobular and grade 1 ductal carcinoma: 8
+    Mixed invasive ductal and invasive lobular: 9
+    ductal and lobular features: 10
+    ductal/lobular: 11
+    invasive ductal and lobular carcinoma: 12
+    lobular/ductal: 13
+    with ductal and lobular phenotypes: 14
+  HISTORY_NEOADJUVANT_TRTYN:
+    'No': 0
+    'Yes': 1
+  HISTORY_OTHER_MALIGNANCY:
+    'No': 0
+    'Yes': 1
+  ICD_10:
+    C50.2: 0
+    C50.3: 1
+    C50.4: 2
+    C50.5: 3
+    C50.8: 4
+    C50.9: 5
+    C50.919: 6
+  ICD_O_3_HISTOLOGY:
+    8010/3: 0
+    8013/3: 1
+    8022/3: 2
+    8050/3: 3
+    8090/3: 4
+    8200/3: 5
+    8201/3: 6
+    8211/3: 7
+    8401/3: 8
+    8480/3: 9
+    8500/3: 10
+    8502/3: 11
+    8503/3: 12
+    8507/3: 13
+    8510/3: 14
+    8520/3: 15
+    8522/3: 16
+    8523/3: 17
+    8524/3: 18
+    8541/3: 19
+    8575/3: 20
+    9020/3: 21
+  ICD_O_3_SITE:
+    C50.2: 0
+    C50.3: 1
+    C50.4: 2
+    C50.5: 3
+    C50.8: 4
+    C50.9: 5
+  IHC_HER2:
+    Equivocal: 0
+    Indeterminate: 1
+    Negative: 2
+    Positive: 3
+  LYMPH_NODES_EXAMINED:
+    'NO': 0
+    'YES': 1
+  MARGIN_STATUS_REEXCISION:
+    Close: 0
+    Negative: 1
+    Positive: 2
+  MENOPAUSE_STATUS:
+    Indeterminate (neither Pre or Postmenopausal): 0
+    Peri (6-12 months since last menstrual period): 1
+    Post (prior bilateral ovariectomy OR >12 mo since LMP with no prior hysterectomy): 2
+    Pre (<6 months since LMP AND no prior bilateral ovariectomy AND not on estrogen replacement): 3
+  METASTATIC_SITE_OTHER:
+    Abdomen: 0
+    Ovary: 1
+    Skin: 2
+    axilaary node negative but intrammary node positive: 3
+    left adrenal gland: 4
+    skin: 5
+  METASTATIC_SITE_PATIENT:
+    Bone: 0
+    Bone|Liver: 1
+    Liver: 2
+    Lung: 3
+    Lung|Bone: 4
+    Lung|Bone|Liver: 5
+    Lung|Bone|Liver|Other, specify: 6
+    Lung|Other, specify: 7
+    Other, specify: 8
+  METASTATIC_TUMOR_INDICATOR:
+    'NO': 0
+    'YES': 1
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT:
+    Core needle biopsy: 0
+    Cytology (e.g. Peritoneal or pleural fluid): 1
+    Excisional Biopsy: 2
+    Fine needle aspiration biopsy: 3
+    Incisional Biopsy: 4
+    'Other method, specify:': 5
+    Tumor resection: 6
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER:
+    Biopsy not specified: 0
+    Biopsy, NOS: 1
+    Lumpectomy: 2
+    Modified Radical Masectomy: 3
+    Patey's Suregery: 4
+    Patey's Surgery: 5
+    SKIN BIOPSY: 6
+    Skin biopsy: 7
+    Ultrasound-guided mammotome biopsy: 8
+    Wide local incision: 9
+    biopsy, NOS: 10
+    intraoperative examination: 11
+    stereotactic biopsy: 12
+  MICROMET_DETECTION_BY_IHC:
+    'NO': 0
+    'YES': 1
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT:
+    'NO': 0
+    'YES': 1
+  NTE_ER_STATUS:
+    Negative: 0
+    Positive: 1
+  NTE_ER_STATUS_IHC_POSITIVE:
+    70-79%: 0
+    90-99%: 1
+    <10%: 2
+  NTE_HER2_POSITIVITY_IHC_SCORE:
+    1+: 0
+    2+: 1
+  NTE_HER2_STATUS:
+    Equivocal: 0
+    Negative: 1
+  NTE_PR_STATUS_BY_IHC:
+    Negative: 0
+    Positive: 1
+  OS_STATUS:
+    0:LIVING: 0
+    1:DECEASED: 1
+  PATH_MARGIN:
+    Close: 0
+    Negative: 1
+    Positive: 2
+  PHARMACEUTICAL_TX_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  PRIMARY_SITE_PATIENT:
+    Left: 0
+    Left Lower Inner Quadrant: 1
+    Left Lower Inner Quadrant|Left: 2
+    Left Lower Inner Quadrant|Left Lower Outer Quadrant: 3
+    Left Lower Inner Quadrant|Left Lower Outer Quadrant|Left: 4
+    Left Lower Outer Quadrant: 5
+    Left Lower Outer Quadrant|Left: 6
+    Left Upper Inner Quadrant: 7
+    Left Upper Inner Quadrant|Left: 8
+    Left Upper Inner Quadrant|Left Lower Inner Quadrant: 9
+    Left Upper Inner Quadrant|Left Lower Inner Quadrant|Left: 10
+    Left Upper Inner Quadrant|Left Lower Inner Quadrant|Left Lower Outer Quadrant|Left: 11
+    Left Upper Inner Quadrant|Left Upper Outer Quadrant: 12
+    Left Upper Inner Quadrant|Left Upper Outer Quadrant|Left: 13
+    Left Upper Inner Quadrant|Left Upper Outer Quadrant|Left Lower Inner Quadrant|Left: 14
+    Left Upper Inner Quadrant|Left Upper Outer Quadrant|Left Lower Inner Quadrant|Left Lower Outer Quadrant: 15
+    Left Upper Inner Quadrant|Left Upper Outer Quadrant|Left Lower Inner Quadrant|Left Lower Outer Quadrant|Left: 16
+    Left Upper Inner Quadrant|Left Upper Outer Quadrant|Left Lower Outer Quadrant|Left: 17
+    Left Upper Outer Quadrant: 18
+    Left Upper Outer Quadrant|Left: 19
+    Left Upper Outer Quadrant|Left Lower Inner Quadrant|Left Lower Outer Quadrant: 20
+    Left Upper Outer Quadrant|Left Lower Outer Quadrant: 21
+    Left Upper Outer Quadrant|Left Lower Outer Quadrant|Left: 22
+    Left|Left Lower Inner Quadrant: 23
+    Left|Left Upper Inner Quadrant: 24
+    Left|Left Upper Inner Quadrant|Left Lower Inner Quadrant: 25
+    Left|Left Upper Inner Quadrant|Left Upper Outer Quadrant|Left Lower Inner Quadrant|Left Lower Outer Quadrant: 26
+    Left|Left Upper Outer Quadrant: 27
+    Right: 28
+    Right Lower Inner Quadrant: 29
+    Right Lower Inner Quadrant|Right: 30
+    Right Lower Inner Quadrant|Right Lower Outer Quadrant: 31
+    Right Lower Inner Quadrant|Right Lower Outer Quadrant|Right: 32
+    Right Lower Outer Quadrant: 33
+    Right Lower Outer Quadrant|Right: 34
+    Right Upper Inner Quadrant: 35
+    Right Upper Inner Quadrant|Right: 36
+    Right Upper Inner Quadrant|Right Lower Inner Quadrant: 37
+    Right Upper Inner Quadrant|Right Lower Inner Quadrant|Right: 38
+    Right Upper Inner Quadrant|Right Upper Outer Quadrant: 39
+    Right Upper Inner Quadrant|Right Upper Outer Quadrant|Right: 40
+    Right Upper Inner Quadrant|Right Upper Outer Quadrant|Right Lower Inner Quadrant|Right Lower Outer Quadrant|Right: 41
+    Right Upper Outer Quadrant: 42
+    Right Upper Outer Quadrant|Right: 43
+    Right Upper Outer Quadrant|Right Lower Inner Quadrant|Right Lower Outer Quadrant: 44
+    Right Upper Outer Quadrant|Right Lower Outer Quadrant: 45
+    Right Upper Outer Quadrant|Right Lower Outer Quadrant|Right: 46
+    Right|Right Lower Inner Quadrant: 47
+    Right|Right Lower Outer Quadrant: 48
+    Right|Right Upper Inner Quadrant: 49
+    Right|Right Upper Inner Quadrant|Right Upper Outer Quadrant|Right Lower Inner Quadrant|Right Lower Outer Quadrant: 50
+    Right|Right Upper Outer Quadrant: 51
+  PROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  PR_POSITIVITY_DEFINE_METHOD:
+    '%IHC': 0
+    Allred 0 = 0+0: 1
+    Allred 5 = 2+3: 2
+    Allred 8 = 5+3: 3
+    Allred score 0+0 = 0: 4
+    Allred score 0+0=0: 5
+    Allred score 2+2 = 4: 6
+    Allred score 2+3 = 5: 7
+    Allred score 3 + 2 = 5: 8
+    Allred score 3+2=5: 9
+    Allred score 3+3=6: 10
+    Allred score 4+3 = 7: 11
+    Allred score 5+2 = 7: 12
+    Allred score 5+3 = 8: 13
+    Allred score 5+3= 8: 14
+    Allred score 5+3=8: 15
+    Allred score 7 per outside facility report: 16
+    Allred score = 8: 17
+    CAP SCORING GUIDELINE 2010: 18
+    CAP scoring guideline 2010: 19
+    H-SCORE 0: 20
+    H-SCORE 1: 21
+    H-SCORE 120: 22
+    H-SCORE 140: 23
+    H-SCORE 15: 24
+    H-SCORE 150: 25
+    H-SCORE 162: 26
+    H-SCORE 200: 27
+    H-SCORE 210: 28
+    H-SCORE 245: 29
+    H-SCORE 250: 30
+    H-SCORE 280: 31
+    H-SCORE 290: 32
+    H-SCORE 7: 33
+    H-Score 0: 34
+    H-Score 140: 35
+    H-Score 15: 36
+    H-Score 160: 37
+    H-Score 190: 38
+    H-Score 260: 39
+    H-Score 290: 40
+    H-Score 70: 41
+    H-Score-230: 42
+    IHC: 43
+    IMAGE ANALYSIS: 44
+    Image Analysis: 45
+    Immune stain by GenPath: 46
+    Immunohistochemistry: 47
+    PR Negative H-Score 0: 48
+    allred score 2+2 = 4: 49
+    allred score 3 + 3 = 6: 50
+    allred score 4 + 3 = 7: 51
+    allred score 4+2=6: 52
+    allred score 5 + 3 = 8: 53
+    allred score 5 +3 = 8: 54
+    allred score 5+3+8: 55
+    dextran coated charcoal: 56
+    image cytometry: 57
+    manual counting: 58
+  PR_POSITIVITY_IHC_INTENSITY_SCORE:
+    '0': 0
+    1+: 1
+    2+: 2
+    3+: 3
+    4+: 4
+  PR_POSITIVITY_SCALE_OTHER:
+    '0': 0
+    0%: 1
+    '10': 2
+    10-75%: 3
+    '108': 4
+    '110': 5
+    '120': 6
+    '140': 7
+    '160': 8
+    '170': 9
+    '210': 10
+    '230': 11
+    240 H: 12
+    '60': 13
+    '7': 14
+    70 fmol/mg: 15
+    '8': 16
+    <10%: 17
+    '>10%': 18
+    '>10% STAINING = POSITIVE': 19
+    '>75%': 20
+    Allread Score 8: 21
+    Allred: 22
+    Allred Score: 23
+    Allred Score 3: 24
+    Allred Score 4: 25
+    Allred Score 5: 26
+    Allred Score 6: 27
+    Allred Score 7: 28
+    Allred Score 8: 29
+    Allred score 0: 30
+    Allred score 5: 31
+    Allred score 6: 32
+    Allred score 7 per outside facility report: 33
+    Allred score 8: 34
+    Allred score = 0: 35
+    Allred score = 2: 36
+    Allred score = 4: 37
+    Allred score = 5: 38
+    Allred score = 7: 39
+    Allred score = 8: 40
+    H score: 41
+    H-SCORE: 42
+    H-Score: 43
+    Intensity=Strong: 44
+    Intensity=weak: 45
+    MODERATE: 46
+    Moderate: 47
+    Oncotype Dx test: 48
+    Strong: 49
+    Strong using Weak, Moderate and Strong: 50
+    Strong, using scale of Weak, Moderate and Strong: 51
+    Two-tier: 52
+    allred score =  8: 53
+    allred score = 4: 54
+    allred score = 6: 55
+    allred score = 7: 56
+    allred score = 8: 57
+    moderate: 58
+    moderately to strongly: 59
+    strong: 60
+  PR_POSITIVITY_SCALE_USED:
+    3 Point Scale: 0
+    4 Point Scale: 1
+  PR_STATUS_BY_IHC:
+    Indeterminate: 0
+    Negative: 1
+    Positive: 2
+  PR_STATUS_IHC_PERCENT_POSITIVE:
+    10-19%: 0
+    20-29%: 1
+    30-39%: 2
+    40-49%: 3
+    50-59%: 4
+    60-69%: 5
+    70-79%: 6
+    80-89%: 7
+    90-99%: 8
+    <10%: 9
+  RACE:
+    AMERICAN INDIAN OR ALASKA NATIVE: 0
+    ASIAN: 1
+    BLACK OR AFRICAN AMERICAN: 2
+    WHITE: 3
+  RADIATION_TREATMENT_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  RETROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  SEX:
+    Female: 0
+    Male: 1
+  SLIDE_TYPE:
+    DX1: 0
+    DX2: 1
+    DX3: 2
+    DX4: 3
+  STAGING_SYSTEM:
+    Axillary lymph node dissection alone: 0
+    No axillary staging: 1
+    Other (specify): 2
+    Sentinel lymph node biopsy plus axillary dissection: 3
+    Sentinel node biopsy alone: 4
+  STAGING_SYSTEM_OTHER:
+    FNA plus axillary lymph node dissection: 0
+    Level 1 clearance: 1
+    Pateys surgery: 2
+    SLN AND NON-SLN BX: 3
+    SLN and non-SLN biopsy: 4
+    SN+1 non sentinel node: 5
+    Sentinel Lymph node biopsy and one non-sentinel lymph node biopsy: 6
+    Sentinel lymph node and axillary lymph node biopsy: 7
+    Sentinel lymph node and non-sentinel lymph node biopsy: 8
+    Sentinel lymph node biopsy and non-sentinel lymph node biopsy: 9
+    Sentinel lymph node biopsy plus non-sentinel lymph node biopsy: 10
+    Sentinel lymph node biopsy x 2 and 1 non-sentinel lymph node biopsy: 11
+    Sentinel lymph node dissection: 12
+    Sentinel lymph node plus Level I and Level II lymph nodes: 13
+    axillary ultrasound: 14
+    mastectomy with TLND: 15
+    sentinel + 2 non-sentinel LN: 16
+    sentinel + non sentinel: 17
+    sentinel LN and one non sentinel LN: 18
+  SURGERY_FOR_POSITIVE_MARGINS:
+    Lumpectomy: 0
+    Mastectomy NOS: 1
+    Modified radical mastectomy: 2
+    Other: 3
+  SURGERY_FOR_POSITIVE_MARGINS_OTHER:
+    Left breast reexcision: 0
+    Margin resection: 1
+    Mastectomy: 2
+    Re-Excision of Superior Margin: 3
+    Re-excision of original lumpectomy site: 4
+    Re-excision of the inferior margin: 5
+    Reexcision: 6
+    Reexcision of segmental mastectomy: 7
+    Right Breast Reexcision: 8
+    Right Breast reexcision: 9
+    Skin excision: 10
+    inner-upper margin re-excision: 11
+    surgical resection: 12
+  SURGICAL_PROCEDURE_FIRST:
+    Lumpectomy: 0
+    Modified Radical Mastectomy: 1
+    Other: 2
+    Simple Mastectomy: 3
+  TISSUE_SOURCE_SITE:
+    3C: 0
+    4H: 1
+    5L: 2
+    5T: 3
+    A1: 4
+    A2: 5
+    A7: 6
+    A8: 7
+    AC: 8
+    AN: 9
+    AO: 10
+    AQ: 11
+    AR: 12
+    B6: 13
+    BH: 14
+    C8: 15
+    D8: 16
+    E2: 17
+    E9: 18
+    EW: 19
+    GI: 20
+    GM: 21
+    HN: 22
+    JL: 23
+    LD: 24
+    LL: 25
+    LQ: 26
+    MS: 27
+    OK: 28
+    OL: 29
+    PE: 30
+    PL: 31
+    S3: 32
+    UL: 33
+    UU: 34
+    W8: 35
+    WT: 36
+    XX: 37
+    Z7: 38
+  TUMOR_STATUS:
+    TUMOR FREE: 0
+    WITH TUMOR: 1

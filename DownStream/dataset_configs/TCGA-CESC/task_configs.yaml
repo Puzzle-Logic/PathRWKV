@@ -1,0 +1,674 @@
+all_task_dict:
+  OS: surv
+  DFS: surv
+  AGE: reg
+  AJCC_METASTASIS_PATHOLOGIC_PM: cls
+  AJCC_NODES_PATHOLOGIC_PN: cls
+  AJCC_STAGING_EDITION: cls
+  AJCC_TUMOR_PATHOLOGIC_PT: cls
+  BRACHYTHERAPY_TOTAL_DOSE_POINT_A: reg
+  BRACHYTHERAPY_TYPE: cls
+  BRACHYTHERAPY_TYPE_OTHER: cls
+  CERVIX_SUV_RESULTS: reg
+  CHEMO_CONCURRENT_COURSE: cls
+  CHEMO_CONCURRENT_DOSE: cls
+  CHEMO_CONCURRENT_FRACTIONS_TOTAL: cls
+  CHEMO_CONCURRENT_REASON_NOT_GIVEN: cls
+  CHEMO_CONCURRENT_TYPE: cls
+  CHEMO_CONCURRENT_TYPE_OTHER: cls
+  CLINICAL_STAGE: cls
+  CORPUS_INVOLVEMENT: cls
+  CT_SCAN_PREOP_RESULTS: cls
+  DAYS_TO_DIAGNOSTIC_COMPUTED_TOMOGRAPHY_PERFORMED: reg
+  DAYS_TO_DIAGNOSTIC_MRI_PERFORMED: reg
+  DAYS_TO_FDG_OR_CT_PET_PERFORMED: reg
+  DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS: reg
+  DAYS_TO_PERFORMANCE_STATUS_ASSESSMENT: reg
+  ECOG_SCORE: reg
+  ETHNICITY: cls
+  FEDPET_OR_CT_RESULTS: cls
+  GRADE: cls
+  HEIGHT: reg
+  HISTOLOGICAL_DIAGNOSIS: cls
+  HISTORY_HORMONAL_CONTRACEPTIVES_USE: cls
+  HISTORY_IMMUNOSUPPRESSIVE_DISEASE: cls
+  HISTORY_OTHER_MALIGNANCY: cls
+  HPV_TYPES_OTHER: cls
+  HPV_TYPES_POSITIVE: cls
+  HPV_TYPING_METHOD: cls
+  HPV_TYPING_METHOD_OTHER: cls
+  HYSTERECTOMY_TYPE: cls
+  ICD_10: cls
+  ICD_O_3_HISTOLOGY: cls
+  ICD_O_3_SITE: cls
+  INITIAL_PATHOLOGIC_DX_YEAR: reg
+  KERATINIZATION_SQUAMOUS_CELL: cls
+  LYMPHOVASCULAR_INVOLVEMENT: cls
+  LYMPH_NODES_EXAMINED: cls
+  LYMPH_NODES_EXAMINED_HE_COUNT: reg
+  LYMPH_NODES_EXAMINED_IHC_COUNT: reg
+  LYMPH_NODES_SUPRACLAVICULAR: cls
+  LYMPH_NODE_EXAMINED_COUNT: reg
+  MARGINS_INVOLVED_HYSTERECTOMY: cls
+  MENOPAUSE_STATUS: cls
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT: cls
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER: cls
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT: cls
+  OTHER_HYSTERECTOMY_TYPE: cls
+  OTHER_IMMUNOSUPPRESSIVE_DISEASE: cls
+  OTHER_INVOLVED_MARGINS: cls
+  OTHER_POS_NODE_LOCATION: cls
+  PELVIC_EXTENSION_COMMENT: cls
+  PERFORMANCE_STATUS_OTHER_TIMING: cls
+  PERFORMANCE_STATUS_TIMING: cls
+  PHARMACEUTICAL_TX_ADJUVANT: cls
+  POS_LYMPH_NODE_LOCATION: cls
+  PREGNANCIES_COUNT_ECTOPIC: reg
+  PREGNANCIES_COUNT_INDUCED_ABORTION: reg
+  PREGNANCIES_COUNT_LIVE_BIRTH: reg
+  PREGNANCIES_COUNT_MISCARRIAGE: reg
+  PREGNANCIES_COUNT_STILLBIRTH: reg
+  PREGNANCIES_COUNT_TOTAL: reg
+  PREGNANT_AT_DIAGNOSIS: cls
+  PROSPECTIVE_COLLECTION: cls
+  RACE: cls
+  RADIATION_THERAPY_DOSE_PARAAORTIC_NODES: reg
+  RADIATION_THERAPY_XRT_TYPE: cls
+  RADIATION_TREATMENT_ADJUVANT: cls
+  RADIATION_TYPE_OTHER: cls
+  RETROSPECTIVE_COLLECTION: cls
+  RT_TX_REASON_NOT_COMPLETED: cls
+  RT_TX_REASON_NOT_COMPLETED_OTHER: cls
+  RT_TX_TOTAL_DOSE_TO_PELVIS: reg
+  SAMPLE_COUNT: reg
+  SLIDE_TYPE: cls
+  SMOKING_PACK_YEARS: reg
+  SMOKING_YEAR_STARTED: reg
+  SMOKING_YEAR_STOPPED: reg
+  TARGETED_MOLECULAR_THERAPY: cls
+  TISSUE_SOURCE_SITE: cls
+  TOBACCO_SMOKING_HISTORY_INDICATOR: reg
+  TREATMENT_OUTCOME_FIRST_COURSE: cls
+  TUMOR_RESPONSE: cls
+  TUMOR_STATUS: cls
+  WEIGHT: reg
+tasks_to_run:
+- AGE
+- AJCC_METASTASIS_PATHOLOGIC_PM
+- AJCC_NODES_PATHOLOGIC_PN
+- AJCC_STAGING_EDITION
+- AJCC_TUMOR_PATHOLOGIC_PT
+- BRACHYTHERAPY_TOTAL_DOSE_POINT_A
+- BRACHYTHERAPY_TYPE
+- BRACHYTHERAPY_TYPE_OTHER
+- CERVIX_SUV_RESULTS
+- CHEMO_CONCURRENT_COURSE
+- CHEMO_CONCURRENT_DOSE
+- CHEMO_CONCURRENT_FRACTIONS_TOTAL
+- CHEMO_CONCURRENT_REASON_NOT_GIVEN
+- CHEMO_CONCURRENT_TYPE
+- CHEMO_CONCURRENT_TYPE_OTHER
+- CLINICAL_STAGE
+- CORPUS_INVOLVEMENT
+- CT_SCAN_PREOP_RESULTS
+- DAYS_TO_DIAGNOSTIC_COMPUTED_TOMOGRAPHY_PERFORMED
+- DAYS_TO_DIAGNOSTIC_MRI_PERFORMED
+- DAYS_TO_FDG_OR_CT_PET_PERFORMED
+- DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS
+- DAYS_TO_PERFORMANCE_STATUS_ASSESSMENT
+- DFS_MONTHS
+- DFS_STATUS
+- ECOG_SCORE
+- ETHNICITY
+- FEDPET_OR_CT_RESULTS
+- GRADE
+- HEIGHT
+- HISTOLOGICAL_DIAGNOSIS
+- HISTORY_HORMONAL_CONTRACEPTIVES_USE
+- HISTORY_IMMUNOSUPPRESSIVE_DISEASE
+- HISTORY_OTHER_MALIGNANCY
+- HPV_TYPES_OTHER
+- HPV_TYPES_POSITIVE
+- HPV_TYPING_METHOD
+- HPV_TYPING_METHOD_OTHER
+- HYSTERECTOMY_TYPE
+- ICD_10
+- ICD_O_3_HISTOLOGY
+- ICD_O_3_SITE
+- INITIAL_PATHOLOGIC_DX_YEAR
+- KERATINIZATION_SQUAMOUS_CELL
+- LYMPHOVASCULAR_INVOLVEMENT
+- LYMPH_NODES_EXAMINED
+- LYMPH_NODES_EXAMINED_HE_COUNT
+- LYMPH_NODES_EXAMINED_IHC_COUNT
+- LYMPH_NODES_SUPRACLAVICULAR
+- LYMPH_NODE_EXAMINED_COUNT
+- MARGINS_INVOLVED_HYSTERECTOMY
+- MENOPAUSE_STATUS
+- METHOD_OF_INITIAL_SAMPLE_PROCUREMENT
+- METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER
+- NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT
+- OS_MONTHS
+- OS_STATUS
+- OTHER_HYSTERECTOMY_TYPE
+- OTHER_IMMUNOSUPPRESSIVE_DISEASE
+- OTHER_INVOLVED_MARGINS
+- OTHER_POS_NODE_LOCATION
+- PELVIC_EXTENSION_COMMENT
+- PERFORMANCE_STATUS_OTHER_TIMING
+- PERFORMANCE_STATUS_TIMING
+- PHARMACEUTICAL_TX_ADJUVANT
+- POS_LYMPH_NODE_LOCATION
+- PREGNANCIES_COUNT_ECTOPIC
+- PREGNANCIES_COUNT_INDUCED_ABORTION
+- PREGNANCIES_COUNT_LIVE_BIRTH
+- PREGNANCIES_COUNT_MISCARRIAGE
+- PREGNANCIES_COUNT_STILLBIRTH
+- PREGNANCIES_COUNT_TOTAL
+- PREGNANT_AT_DIAGNOSIS
+- PROSPECTIVE_COLLECTION
+- RACE
+- RADIATION_THERAPY_DOSE_PARAAORTIC_NODES
+- RADIATION_THERAPY_XRT_TYPE
+- RADIATION_TREATMENT_ADJUVANT
+- RADIATION_TYPE_OTHER
+- RETROSPECTIVE_COLLECTION
+- RT_TX_REASON_NOT_COMPLETED
+- RT_TX_REASON_NOT_COMPLETED_OTHER
+- RT_TX_TOTAL_DOSE_TO_PELVIS
+- SAMPLE_COUNT
+- SMOKING_PACK_YEARS
+- SMOKING_YEAR_STARTED
+- SMOKING_YEAR_STOPPED
+- TARGETED_MOLECULAR_THERAPY
+- TISSUE_SOURCE_SITE
+- TOBACCO_SMOKING_HISTORY_INDICATOR
+- TREATMENT_OUTCOME_FIRST_COURSE
+- TUMOR_RESPONSE
+- TUMOR_STATUS
+- WEIGHT
+- SLIDE_TYPE
+label_dict:
+  AJCC_METASTASIS_PATHOLOGIC_PM:
+    M0: 0
+    M1: 1
+    MX: 2
+  AJCC_NODES_PATHOLOGIC_PN:
+    N0: 0
+    N1: 1
+    NX: 2
+  AJCC_STAGING_EDITION:
+    '1988': 0
+    '1995': 1
+    '2009': 2
+    5th: 3
+    7th: 4
+  AJCC_TUMOR_PATHOLOGIC_PT:
+    T1a1: 0
+    T1b: 1
+    T1b1: 2
+    T1b2: 3
+    T2: 4
+    T2a: 5
+    T2a1: 6
+    T2a2: 7
+    T2b: 8
+    T3: 9
+    T3a: 10
+    T3b: 11
+    T4: 12
+    TX: 13
+    Tis: 14
+  BRACHYTHERAPY_TYPE:
+    HDR: 0
+    LDR: 1
+    Other: 2
+  BRACHYTHERAPY_TYPE_OTHER:
+    Implants-tandem and ovoids: 0
+    pulse dose rate: 1
+    vaginal implant: 2
+  CHEMO_CONCURRENT_COURSE:
+    Once weekly: 0
+    Once weekly|Once weekly: 1
+    Once weekly|Once weekly|Once weekly|[Not Available]: 2
+    '[Not Available]|[Not Available]': 3
+  CHEMO_CONCURRENT_DOSE:
+    1000 ml: 0
+    40 MG/M2: 1
+    40 mg/m2: 2
+    40mg: 3
+    40mg/m2: 4
+    50mg: 5
+    56mg/56mL: 6
+    57|AUC/5|175mg/m2; 135mg/m2|15mg/kg: 7
+    '62': 8
+    '68': 9
+    '70': 10
+    70 mg/m2|750 mg/m2: 11
+    70mg: 12
+    70mg/m2|1000mg/m2: 13
+    75 mg/m2|750 MG/M2: 14
+    '[Not Available]|[Not Available]': 15
+  CHEMO_CONCURRENT_FRACTIONS_TOTAL:
+    '1': 0
+    '2': 1
+    2|6|6|5: 2
+    '3': 3
+    3|3: 4
+    '4': 5
+    4|4: 6
+    '5': 7
+    '6': 8
+    '7': 9
+    '[Not Available]|[Not Available]': 10
+  CHEMO_CONCURRENT_REASON_NOT_GIVEN:
+    Adverse event/ complications: 0
+    Not done per treating physicians discretion: 1
+    Other: 2
+    Participant refusal: 3
+    Scheduling problems: 4
+  CHEMO_CONCURRENT_TYPE:
+    Carboplatin: 0
+    Carboplatin|Other: 1
+    Cisplatin: 2
+    Cisplatin|Carboplatin|Other|Other: 3
+    Cisplatin|Other: 4
+    Other|Other: 5
+  CHEMO_CONCURRENT_TYPE_OTHER:
+    Cisplatin|Gemcitabine: 0
+    '[Not Applicable]|5 fu RTOG protocol': 1
+    '[Not Applicable]|5FU': 2
+    '[Not Applicable]|Fluorouracil': 3
+    '[Not Applicable]|Fluorouracil (5-FU)': 4
+    '[Not Applicable]|Taxol': 5
+    '[Not Applicable]|[Not Applicable]|Paclitaxel|Bevacizumab': 6
+  CLINICAL_STAGE:
+    Stage I: 0
+    Stage IA: 1
+    Stage IA1: 2
+    Stage IB: 3
+    Stage IB1: 4
+    Stage IB2: 5
+    Stage II: 6
+    Stage IIA: 7
+    Stage IIA1: 8
+    Stage IIA2: 9
+    Stage IIB: 10
+    Stage III: 11
+    Stage IIIA: 12
+    Stage IIIB: 13
+    Stage IVA: 14
+    Stage IVB: 15
+  CORPUS_INVOLVEMENT:
+    ABSENT: 0
+    PRESENT: 1
+  CT_SCAN_PREOP_RESULTS:
+    Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Paraaortic Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent: 0
+    Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Paraaortic Nodes Absent|Pelvic Nodes Absent|[Not Available]: 1
+    Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic Nodes Absent|Pelvic Nodes Absent: 2
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent
+    : 3
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|[Not Available]
+    : 4
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Present|Supraclavicular Absent
+    : 5
+    Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Pelvic Nodes Absent: 6
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Present|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent
+    : 7
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Present|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|[Not Available]
+    : 8
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Present|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent
+    : 9
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Present|Parametrium Present|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent
+    : 10
+    Bladder Absent|Parametrium Absent|Paraaortic Nodes Absent|Pelvic Nodes Present|Supraclavicular Absent: 11
+    Bladder Absent|[Not Available]|Parametrium Absent|Paraaortic Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent: 12
+    Bladder Absent|[Not Available]|Parametrium Absent|[Not Available]|Pelvic Nodes Absent|[Not Available]: 13
+    Bladder Absent|[Not Available]|Parametrium Absent|[Not Available]|Pelvic Nodes Present: 14
+    ? Bladder Present|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent
+    : 15
+    Bladder Present|Extra-Pelvic Metastatic Disease Absent|Pelvic Nodes Present: 16
+    Bladder Present|[Not Available]|[Not Available]|[Not Available]|[Not Available]|[Not Available]: 17
+    Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic Nodes Absent|Pelvic Nodes Absent: 18
+    Extra-Pelvic Metastatic Disease Absent|Parametrium Present|Paraaortic Nodes Absent|Pelvic Nodes Absent: 19
+    Extra-Pelvic Metastatic Disease Present: 20
+    Extra-Pelvic Metastatic Disease Present|Paraaortic Nodes Present|Pelvic Nodes Present|Supraclavicular Absent: 21
+    Extra-Pelvic Metastatic Disease Present|Pelvic Nodes Present: 22
+    Pelvic Nodes Present: 23
+    ? '[Not Available]|Extra-Pelvic Metastatic Disease Absent|[Not Available]|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent'
+    : 24
+    '[Not Available]|Paraaortic Nodes Absent|Pelvic Nodes Absent': 25
+    '[Not Available]|[Not Available]|[Not Available]|Paraaortic Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent': 26
+    '[Not Available]|[Not Available]|[Not Available]|[Not Available]|Pelvic Nodes Absent|[Not Available]': 27
+    '[Not Available]|[Not Available]|[Not Available]|[Not Available]|[Not Available]|[Not Available]': 28
+  DFS_STATUS:
+    0:DiseaseFree: 0
+    1:Recurred/Progressed: 1
+  ETHNICITY:
+    HISPANIC OR LATINO: 0
+    NOT HISPANIC OR LATINO: 1
+  FEDPET_OR_CT_RESULTS:
+    Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Paraaortic Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent: 0
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent
+    : 1
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Present|Supraclavicular Absent
+    : 2
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Present|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent
+    : 3
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Present|Parametrium Absent|Paraaortic
+      Nodes Present|Pelvic Nodes Present|Supraclavicular Absent
+    : 4
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Present|Parametrium Present|Paraaortic
+      Nodes Absent|Pelvic Nodes Present|Supraclavicular Absent
+    : 5
+    Bladder Absent|Parametrium Absent|Paraaortic Nodes Present|Pelvic Nodes Present|Supraclavicular Absent: 6
+    Bladder Absent|[Not Available]|Parametrium Absent|Paraaortic Nodes Absent|Pelvic Nodes Absent|[Not Available]: 7
+    Bladder Absent|[Not Available]|[Not Available]|[Not Available]|Pelvic Nodes Present|[Not Available]: 8
+    Extra-Pelvic Metastatic Disease Absent: 9
+    ? Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic Nodes Absent|Pelvic
+      Nodes Absent|Supraclavicular Absent
+    : 10
+    Extra-Pelvic Metastatic Disease Present: 11
+    Paraaortic Nodes Present|Pelvic Nodes Present: 12
+    Parametrium Present|Pelvic Nodes Present: 13
+    Pelvic Nodes Present: 14
+    ? '[Not Available]|Extra-Pelvic Metastatic Disease Absent|[Not Available]|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent'
+    : 15
+    '[Not Available]|[Not Available]|[Not Available]|[Not Available]|[Not Available]|[Not Available]': 16
+  GRADE:
+    G1: 0
+    G2: 1
+    G3: 2
+    G4: 3
+    GX: 4
+  HISTOLOGICAL_DIAGNOSIS:
+    Adenosquamous: 0
+    Cervical Squamous Cell Carcinoma: 1
+    Endocervical Adenocarcinoma of the Usual Type: 2
+    Endocervical Type of Adenocarcinoma: 3
+    Endometrioid Adenocarcinoma of Endocervix: 4
+    Mucinous Adenocarcinoma of Endocervical Type: 5
+  HISTORY_HORMONAL_CONTRACEPTIVES_USE:
+    Current User: 0
+    Former User: 1
+    Never Used: 2
+  HISTORY_IMMUNOSUPPRESSIVE_DISEASE:
+    HIV: 0
+    Other, specify: 1
+    '[Not Evaluated]': 2
+  HISTORY_OTHER_MALIGNANCY:
+    'No': 0
+    'Yes': 1
+  HPV_TYPES_OTHER:
+    18,31,33,35,39,45,51,52,56,58,59,68: 0
+    31.33, 35.39, 45.51, 52.56.58.59.68: 1
+    '45': 2
+    '52': 3
+    '58': 4
+    '70': 5
+    HPV 63: 6
+    High risk: 7
+    There are several types of HPV the patient could be positive for.: 8
+  HPV_TYPES_POSITIVE:
+    HPV 16: 0
+    HPV 16|HPV 18|Other HPV type(s): 1
+    HPV 16|Other HPV type(s): 2
+    HPV 18: 3
+    Other HPV type(s): 4
+  HPV_TYPING_METHOD:
+    Other, specify: 0
+    PCR: 1
+  HPV_TYPING_METHOD_OTHER:
+    HPV Hybrid Capture II: 0
+    Hybrid Capture 2: 1
+    Immunostain: 2
+  HYSTERECTOMY_TYPE:
+    Other: 0
+    Radical Hysterectomy: 1
+    Simple Hysterectomy: 2
+  ICD_10:
+    C53.0: 0
+    C53.1: 1
+    C53.9: 2
+    C56.9: 3
+  ICD_O_3_HISTOLOGY:
+    8052/3: 0
+    8070/3: 1
+    8071/3: 2
+    8072/3: 3
+    8083/3: 4
+    8140/3: 5
+    8380/3: 6
+    8384/3: 7
+    8480/3: 8
+    8482/3: 9
+    8560/3: 10
+  ICD_O_3_SITE:
+    C53.0: 0
+    C53.1: 1
+    C53.9: 2
+    C56.9: 3
+  KERATINIZATION_SQUAMOUS_CELL:
+    Keratinizing squamous cell carcinoma: 0
+    Non-keratinizing squamous cell carcinoma: 1
+  LYMPHOVASCULAR_INVOLVEMENT:
+    ABSENT: 0
+    PRESENT: 1
+  LYMPH_NODES_EXAMINED:
+    'NO': 0
+    'YES': 1
+  LYMPH_NODES_SUPRACLAVICULAR:
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent
+    : 0
+    ? Bladder Absent|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Present|Supraclavicular Absent
+    : 1
+    Bladder Absent|[Not Available]|Parametrium Absent|Paraaortic Nodes Absent|Pelvic Nodes Absent|[Not Available]: 2
+    Bladder Absent|[Not Available]|Parametrium Absent|[Not Available]|Pelvic Nodes Present|[Not Available]: 3
+    Extra-Pelvic Metastatic Disease Absent|Parametrium Absent: 4
+    Pelvic Nodes Present: 5
+    ? '[Not Available]|Extra-Pelvic Metastatic Disease Absent|Parametrium Absent|Paraaortic
+      Nodes Absent|Pelvic Nodes Absent|Supraclavicular Absent'
+    : 6
+  MARGINS_INVOLVED_HYSTERECTOMY:
+    Macroscopic parametrial involvement: 0
+    Microscopic parametrial involvement: 1
+    Other Location, specify: 2
+    Positive bladder margin: 3
+    Positive vaginal margin: 4
+  MENOPAUSE_STATUS:
+    Indeterminate (neither Pre or Postmenopausal): 0
+    Peri (6-12 months since last menstrual period): 1
+    Post (prior bilateral ovariectomy OR >12 mo since LMP with no prior hysterectomy): 2
+    Pre (<6 months since LMP AND no prior bilateral ovariectomy AND not on estrogen replacement): 3
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT:
+    Biopsy (cervical / CT-guided / Other): 0
+    Cone Biopsy / LEEP: 1
+    Cytology (e.g. Peritoneal or pleural fluid): 2
+    Lymph node sampling or dissection: 3
+    'Other method, specify:': 4
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER:
+    D&C: 0
+    Dilation & curettage: 1
+    Dilation and curettage: 2
+    ECC: 3
+    Hysterectomy: 4
+    Radical Hysterectomy: 5
+    Surgery: 6
+    Surgical resection: 7
+    Tissue in the cervix during pelvic exam was passed ans sent for pathology: 8
+    Total Abdominal Hysterectomy: 9
+    curettage: 10
+    endometrial biopsy: 11
+    surgery: 12
+    tumor resection: 13
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT:
+    'NO': 0
+    'YES': 1
+  OS_STATUS:
+    0:LIVING: 0
+    1:DECEASED: 1
+  OTHER_HYSTERECTOMY_TYPE:
+    Radical trachelectomy: 0
+    Radical trachelectomy and pelvic lymphadenectomy: 1
+    Total Abdominal: 2
+    Wertheim Meiggs: 3
+    robotic: 4
+  OTHER_IMMUNOSUPPRESSIVE_DISEASE:
+    Herpes: 0
+    Positive for Hepatitis A: 1
+  OTHER_INVOLVED_MARGINS:
+    Anterior lower uterine segment: 0
+    FREE MARGINS: 1
+    No involved margins. Margins clear as per pathology report.: 2
+    Not involved: 3
+    Patient had clear margins: 4
+    Squamous cell carcinoma in situ focallly extends to the cervical cuff margin(6-9 o'clock: 5
+    Uninvolved margins: 6
+    deep cervical: 7
+    margins free of tumor: 8
+    perineural space invasion: 9
+    uninvolved margins: 10
+  OTHER_POS_NODE_LOCATION:
+    Left External Iliac/Obturator: 0
+    Obturator: 1
+    Parametrial: 2
+    anterior parametrium: 3
+    left parametrium: 4
+    perigastric: 5
+  PELVIC_EXTENSION_COMMENT:
+    Bilateral pelvic wall involvement on imaging: 0
+    Metastases to Right Ovary: 1
+    No pelvic spread: 2
+    Pelvic spread: 3
+    ? The pelvic nodules show circumscribed area of adipose tissue with local fat
+      necrosis. No evidence of malignancy within this pelvic nodule.
+    : 4
+    Tumor extends 1.0cm into 1.3 cm thick cervical/lower uterine segment wall: 5
+    ? carcinoma involves all sections of the cervix with direct extension into the
+      myometrial wall, parametrial tissues and upper vagina.
+    : 6
+    negative: 7
+    no extension: 8
+    severe squamous dysplasia (CIN3) extending to the vaginal margin of excision: 9
+  PERFORMANCE_STATUS_OTHER_TIMING:
+    No treatment performed: 0
+    Post operative visit: 1
+    Post-op: 2
+    The patient did not perform treatment: 3
+    during adjuvant therapy: 4
+  PERFORMANCE_STATUS_TIMING:
+    Other: 0
+    Post-Adjuvant Therapy: 1
+    Pre-Adjuvant Therapy: 2
+    Preoperative: 3
+  PHARMACEUTICAL_TX_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  POS_LYMPH_NODE_LOCATION:
+    Common iliac: 0
+    Other Location, specify: 1
+    Pelvic (external iliac, internal iliac, obturator): 2
+    Pelvic (external iliac, internal iliac, obturator)|Common iliac: 3
+    Pelvic (external iliac, internal iliac, obturator)|Common iliac|Para-aortic: 4
+    Pelvic (external iliac, internal iliac, obturator)|Other Location, specify: 5
+    Pelvic (external iliac, internal iliac, obturator)|Para-aortic: 6
+    Pelvic (external iliac, internal iliac, obturator)|Para-aortic|Supraclavicular: 7
+  PREGNANT_AT_DIAGNOSIS:
+    'NO': 0
+    'YES': 1
+  PROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  RACE:
+    AMERICAN INDIAN OR ALASKA NATIVE: 0
+    ASIAN: 1
+    BLACK OR AFRICAN AMERICAN: 2
+    NATIVE HAWAIIAN OR OTHER PACIFIC ISLANDER: 3
+    WHITE: 4
+  RADIATION_THERAPY_XRT_TYPE:
+    3D conformal: 0
+    External beam radiation: 1
+    IMRT: 2
+    Other: 3
+  RADIATION_TREATMENT_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  RADIATION_TYPE_OTHER:
+    Whole pelvis split field: 0
+    external beam and bilateral parametrial boost: 1
+  RETROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  RT_TX_REASON_NOT_COMPLETED:
+    Adverse event/complications: 0
+    Not done per treating physician discretion: 1
+    Other: 2
+    Participant refusal: 3
+  RT_TX_REASON_NOT_COMPLETED_OTHER:
+    Brain and Pulmonary Metastases leading to death: 0
+    Radiation currently ongoing- treatment delayed due to postoperative complication: 1
+  SLIDE_TYPE:
+    DX1: 0
+    DX2: 1
+    DX3: 2
+    DX4: 3
+  TARGETED_MOLECULAR_THERAPY:
+    'NO': 0
+    'YES': 1
+  TISSUE_SOURCE_SITE:
+    2W: 0
+    4J: 1
+    BI: 2
+    C5: 3
+    DG: 4
+    DR: 5
+    DS: 6
+    EA: 7
+    EX: 8
+    FU: 9
+    GH: 10
+    HG: 11
+    HM: 12
+    IR: 13
+    JW: 14
+    JX: 15
+    LP: 16
+    MA: 17
+    MU: 18
+    MY: 19
+    PN: 20
+    Q1: 21
+    RA: 22
+    UC: 23
+    VS: 24
+    WL: 25
+    XS: 26
+    ZJ: 27
+    ZX: 28
+  TREATMENT_OUTCOME_FIRST_COURSE:
+    Complete Remission/Response: 0
+    Partial Remission/Response: 1
+    Progressive Disease: 2
+    Stable Disease: 3
+  TUMOR_RESPONSE:
+    Complete response: 0
+    Partial response: 1
+    Progression: 2
+  TUMOR_STATUS:
+    TUMOR FREE: 0
+    WITH TUMOR: 1

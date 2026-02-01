@@ -1,0 +1,376 @@
+all_task_dict:
+  OS: surv
+  DFS: surv
+  AGE: reg
+  ANIMAL_INSECT_ALLERGY_AGE: cls
+  ANIMAL_INSECT_ALLERGY_HIST: cls
+  ASTHMA_ECZEMA_ALLERGY_FIRST_DIAGNOSIS: cls
+  ASTHMA_HISTORY: cls
+  DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS: reg
+  ECOG_SCORE: reg
+  ECZEMA_HISTORY: cls
+  ETHNICITY: cls
+  FAMILY_HISTORY_OF_CANCER: cls
+  FAMILY_HISTORY_OF_PRIMARY_BRAIN_TUMOR: cls
+  FIRST_SYMPTOM_LONGEST_DURATION: cls
+  FOOD_ALLERGY_AGE: cls
+  FOOD_ALLERGY_HISTORY: cls
+  FOOD_ALLERGY_TYPES: cls
+  GRADE: cls
+  HAY_FEVER_HISTORY: cls
+  HEADACHE_HISTORY: cls
+  HISTOLOGICAL_DIAGNOSIS: cls
+  HISTORY_IONIZING_RT_TO_HEAD: cls
+  HISTORY_NEOADJUVANT_MEDICATION: cls
+  HISTORY_NEOADJUVANT_STEROID_TX: cls
+  HISTORY_NEOADJUVANT_TRTYN: cls
+  HISTORY_OTHER_MALIGNANCY: cls
+  ICD_10: cls
+  ICD_O_3_HISTOLOGY: cls
+  ICD_O_3_SITE: cls
+  IDH1_MUTATION: cls
+  IDH1_MUTATION_TEST_INDICATOR: cls
+  IDH1_MUTATION_TEST_METHOD: cls
+  INHERITED_GENETIC_SYNDROME_INDICATOR: cls
+  INHERITED_GENETIC_SYNDROME_SPECIFIED: cls
+  INITIAL_PATHOLOGIC_DX_YEAR: reg
+  KARNOFSKY_PERFORMANCE_SCORE: reg
+  LATERALITY: cls
+  MOLD_OR_DUST_ALLERGY_HISTORY: cls
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT: cls
+  PERFORMANCE_STATUS_DAYS_TO: reg
+  PERFORMANCE_STATUS_TIMING: cls
+  PROSPECTIVE_COLLECTION: cls
+  RACE: cls
+  RADIATION_TREATMENT_ADJUVANT: cls
+  RELATED_SYMPTOM_FIRST_PRESENT: cls
+  RETROSPECTIVE_COLLECTION: cls
+  SAMPLE_COUNT: reg
+  SEIZURE_HISTORY: cls
+  SEX: cls
+  SLIDE_TYPE: cls
+  SUPRATENTORIAL_LOCALIZATION: cls
+  SYMP_CHANGES_MENTAL_STATUS: cls
+  SYMP_CHANGES_MOTOR_MOVEMENT: cls
+  SYMP_CHANGES_SENSORY: cls
+  SYMP_CHANGES_VISUAL: cls
+  TARGETED_MOLECULAR_THERAPY: cls
+  TISSUE_SOURCE_SITE: cls
+  TREATMENT_OUTCOME_FIRST_COURSE: cls
+  TUMOR_SITE: cls
+  TUMOR_STATUS: cls
+tasks_to_run:
+- AGE
+- ANIMAL_INSECT_ALLERGY_AGE
+- ANIMAL_INSECT_ALLERGY_HIST
+- ASTHMA_ECZEMA_ALLERGY_FIRST_DIAGNOSIS
+- ASTHMA_HISTORY
+- DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS
+- DFS_MONTHS
+- DFS_STATUS
+- ECOG_SCORE
+- ECZEMA_HISTORY
+- ETHNICITY
+- FAMILY_HISTORY_OF_CANCER
+- FAMILY_HISTORY_OF_PRIMARY_BRAIN_TUMOR
+- FIRST_SYMPTOM_LONGEST_DURATION
+- FOOD_ALLERGY_AGE
+- FOOD_ALLERGY_HISTORY
+- FOOD_ALLERGY_TYPES
+- GRADE
+- HAY_FEVER_HISTORY
+- HEADACHE_HISTORY
+- HISTOLOGICAL_DIAGNOSIS
+- HISTORY_IONIZING_RT_TO_HEAD
+- HISTORY_NEOADJUVANT_MEDICATION
+- HISTORY_NEOADJUVANT_STEROID_TX
+- HISTORY_NEOADJUVANT_TRTYN
+- HISTORY_OTHER_MALIGNANCY
+- ICD_10
+- ICD_O_3_HISTOLOGY
+- ICD_O_3_SITE
+- IDH1_MUTATION
+- IDH1_MUTATION_TEST_INDICATOR
+- IDH1_MUTATION_TEST_METHOD
+- INHERITED_GENETIC_SYNDROME_INDICATOR
+- INHERITED_GENETIC_SYNDROME_SPECIFIED
+- INITIAL_PATHOLOGIC_DX_YEAR
+- KARNOFSKY_PERFORMANCE_SCORE
+- LATERALITY
+- MOLD_OR_DUST_ALLERGY_HISTORY
+- NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT
+- OS_MONTHS
+- OS_STATUS
+- PERFORMANCE_STATUS_DAYS_TO
+- PERFORMANCE_STATUS_TIMING
+- PROSPECTIVE_COLLECTION
+- RACE
+- RADIATION_TREATMENT_ADJUVANT
+- RELATED_SYMPTOM_FIRST_PRESENT
+- RETROSPECTIVE_COLLECTION
+- SAMPLE_COUNT
+- SEIZURE_HISTORY
+- SEX
+- SUPRATENTORIAL_LOCALIZATION
+- SYMP_CHANGES_MENTAL_STATUS
+- SYMP_CHANGES_MOTOR_MOVEMENT
+- SYMP_CHANGES_SENSORY
+- SYMP_CHANGES_VISUAL
+- TARGETED_MOLECULAR_THERAPY
+- TISSUE_SOURCE_SITE
+- TREATMENT_OUTCOME_FIRST_COURSE
+- TUMOR_SITE
+- TUMOR_STATUS
+- SLIDE_TYPE
+label_dict:
+  ANIMAL_INSECT_ALLERGY_AGE:
+    12 - 20 Years: 0
+    < 12 Years: 1
+    '> 20 Years': 2
+  ANIMAL_INSECT_ALLERGY_HIST:
+    'NO': 0
+    'YES': 1
+  ASTHMA_ECZEMA_ALLERGY_FIRST_DIAGNOSIS:
+    12 - 20 Years: 0
+    < 12 Years: 1
+    '> 20 Years': 2
+  ASTHMA_HISTORY:
+    'NO': 0
+    'YES': 1
+  DFS_STATUS:
+    0:DiseaseFree: 0
+    1:Recurred/Progressed: 1
+  ECZEMA_HISTORY:
+    'NO': 0
+    'YES': 1
+  ETHNICITY:
+    HISPANIC OR LATINO: 0
+    NOT HISPANIC OR LATINO: 1
+  FAMILY_HISTORY_OF_CANCER:
+    'NO': 0
+    'YES': 1
+  FAMILY_HISTORY_OF_PRIMARY_BRAIN_TUMOR:
+    'NO': 0
+    'YES': 1
+  FIRST_SYMPTOM_LONGEST_DURATION:
+    0 - 30 Days: 0
+    31 - 90 Days: 1
+    91 - 180 Days: 2
+    '> 181 Days': 3
+  FOOD_ALLERGY_AGE:
+    12 - 20 Years: 0
+    '> 20 Years': 1
+  FOOD_ALLERGY_HISTORY:
+    'NO': 0
+    'YES': 1
+  FOOD_ALLERGY_TYPES:
+    Citrus fruits: 0
+    Dairy/lactose: 1
+    Eggs: 2
+    Hazelnuts: 3
+    Melon: 4
+    Processed food: 5
+    Seafood: 6
+    beef: 7
+    clams: 8
+    fresh pitted fruit: 9
+    lactose: 10
+    lactose containing products: 11
+    lactose intolerance: 12
+    lactose, cheese, gluten: 13
+    peanuts: 14
+    seafood: 15
+    seafood, nuts: 16
+    shellfish: 17
+  GRADE:
+    G2: 0
+    G3: 1
+  HAY_FEVER_HISTORY:
+    'NO': 0
+    'YES': 1
+  HEADACHE_HISTORY:
+    'NO': 0
+    'YES': 1
+  HISTOLOGICAL_DIAGNOSIS:
+    Astrocytoma: 0
+    Oligoastrocytoma: 1
+    Oligodendroglioma: 2
+  HISTORY_IONIZING_RT_TO_HEAD:
+    'NO': 0
+    'YES': 1
+  HISTORY_NEOADJUVANT_MEDICATION:
+    'NO': 0
+    'YES': 1
+  HISTORY_NEOADJUVANT_STEROID_TX:
+    'NO': 0
+    'YES': 1
+  HISTORY_NEOADJUVANT_TRTYN:
+    'No': 0
+    'Yes': 1
+    Yes, Pharmaceutical Treatment Prior to Resection: 2
+    Yes, Radiation Prior to Resection: 3
+  HISTORY_OTHER_MALIGNANCY:
+    'No': 0
+    'Yes': 1
+    Yes, History of Prior Malignancy: 2
+    Yes, History of Synchronous/Bilateral Malignancy: 3
+  ICD_10:
+    C71.0: 0
+    C71.1: 1
+    C71.2: 2
+    C71.3: 3
+    C71.4: 4
+    C71.9: 5
+  ICD_O_3_HISTOLOGY:
+    9382/3: 0
+    9400/3: 1
+    9401/3: 2
+    9450/3: 3
+    9451/3: 4
+  ICD_O_3_SITE:
+    C71.0: 0
+    C71.1: 1
+    C71.2: 2
+    C71.3: 3
+    C71.4: 4
+    C71.9: 5
+  IDH1_MUTATION:
+    'NO': 0
+    'YES': 1
+  IDH1_MUTATION_TEST_INDICATOR:
+    'NO': 0
+    'YES': 1
+  IDH1_MUTATION_TEST_METHOD:
+    IHC: 0
+    Sequence Analysis: 1
+  INHERITED_GENETIC_SYNDROME_INDICATOR:
+    'NO': 0
+    'YES': 1
+  INHERITED_GENETIC_SYNDROME_SPECIFIED:
+    1p and 19Q deleted: 0
+    1p19q codeleted: 1
+    1p19q deletion: 2
+    3 X chromosomes (super female) Osler-Weber-Rendu syndrome: 3
+  LATERALITY:
+    Left: 0
+    Midline: 1
+    Right: 2
+  MOLD_OR_DUST_ALLERGY_HISTORY:
+    'NO': 0
+    'YES': 1
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT:
+    'NO': 0
+    'YES': 1
+  OS_STATUS:
+    0:LIVING: 0
+    1:DECEASED: 1
+  PERFORMANCE_STATUS_TIMING:
+    Other: 0
+    Post-Adjuvant Therapy: 1
+    Pre-Adjuvant Therapy: 2
+    Preoperative: 3
+  PROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  RACE:
+    AMERICAN INDIAN OR ALASKA NATIVE: 0
+    ASIAN: 1
+    BLACK OR AFRICAN AMERICAN: 2
+    WHITE: 3
+  RADIATION_TREATMENT_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  RELATED_SYMPTOM_FIRST_PRESENT:
+    Headaches: 0
+    Mental Status Changes: 1
+    Motor/Movement Changes: 2
+    Seizures: 3
+    Sensory Changes: 4
+    Visual Changes: 5
+  RETROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  SEIZURE_HISTORY:
+    'NO': 0
+    'YES': 1
+  SEX:
+    Female: 0
+    Male: 1
+  SLIDE_TYPE:
+    DX1: 0
+    DX2: 1
+    DX3: 2
+    DX4: 3
+    DX5: 4
+    DX6: 5
+    DX7: 6
+    DX8: 7
+    DX9: 8
+    DXA: 9
+    DXB: 10
+    DXC: 11
+    DXD: 12
+    DXE: 13
+    DXF: 14
+  SUPRATENTORIAL_LOCALIZATION:
+    Cerebral Cortex: 0
+    Deep Gray (e.g.basal ganglia, thalamus): 1
+    Not listed in Medical Record: 2
+    White Matter: 3
+  SYMP_CHANGES_MENTAL_STATUS:
+    'NO': 0
+    'YES': 1
+  SYMP_CHANGES_MOTOR_MOVEMENT:
+    'NO': 0
+    'YES': 1
+  SYMP_CHANGES_SENSORY:
+    'NO': 0
+    'YES': 1
+  SYMP_CHANGES_VISUAL:
+    'NO': 0
+    'YES': 1
+  TARGETED_MOLECULAR_THERAPY:
+    'NO': 0
+    'YES': 1
+  TISSUE_SOURCE_SITE:
+    CS: 0
+    DB: 1
+    DH: 2
+    DU: 3
+    E1: 4
+    EZ: 5
+    F6: 6
+    FG: 7
+    FN: 8
+    HT: 9
+    HW: 10
+    IK: 11
+    KT: 12
+    P5: 13
+    QH: 14
+    R8: 15
+    RY: 16
+    S9: 17
+    TM: 18
+    TQ: 19
+    VM: 20
+    VV: 21
+    W9: 22
+    WH: 23
+    WY: 24
+  TREATMENT_OUTCOME_FIRST_COURSE:
+    Complete Remission/Response: 0
+    Partial Remission/Response: 1
+    Progressive Disease: 2
+    Stable Disease: 3
+  TUMOR_SITE:
+    Posterior Fossa, Brain Stem: 0
+    Posterior Fossa, Cerebellum: 1
+    Supratentorial, Frontal Lobe: 2
+    Supratentorial, Not Otherwise Specified: 3
+    Supratentorial, Occipital Lobe: 4
+    Supratentorial, Parietal Lobe: 5
+    Supratentorial, Temporal Lobe: 6
+  TUMOR_STATUS:
+    TUMOR FREE: 0
+    WITH TUMOR: 1

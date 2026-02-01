@@ -1,0 +1,383 @@
+all_task_dict:
+  OS: surv
+  DFS: surv
+  AGE: reg
+  AJCC_METASTASIS_PATHOLOGIC_PM: cls
+  AJCC_NODES_PATHOLOGIC_PN: cls
+  AJCC_PATHOLOGIC_TUMOR_STAGE: cls
+  AJCC_PATHOLOGIC_TUMOR_STAGE_reduced: cls
+  AJCC_STAGING_EDITION: cls
+  AJCC_TUMOR_PATHOLOGIC_PT: cls
+  ALK_ANALYSIS_TYPE: cls
+  ALK_TRANSLOCATION_STATUS: cls
+  CARBON_MONOXIDE_DIFFUSION_DLCO: reg
+  DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS: reg
+  ECOG_SCORE: reg
+  ETHNICITY: cls
+  FEV1_FVC_RATIO_POSTBRONCHOLIATOR: reg
+  FEV1_FVC_RATIO_PREBRONCHOLIATOR: reg
+  FEV1_PERCENT_REF_POSTBRONCHOLIATOR: reg
+  FEV1_PERCENT_REF_PREBRONCHOLIATOR: reg
+  HISTOLOGICAL_DIAGNOSIS: cls
+  HISTORY_NEOADJUVANT_TRTYN: cls
+  HISTORY_OTHER_MALIGNANCY: cls
+  ICD_10: cls
+  ICD_O_3_HISTOLOGY: cls
+  ICD_O_3_SITE: cls
+  INITIAL_PATHOLOGIC_DX_YEAR: reg
+  KARNOFSKY_PERFORMANCE_SCORE: reg
+  KRAS_GENE_ANALYSIS_INDICATOR: cls
+  KRAS_MUTATION: cls
+  KRAS_MUTATION_IDENTIFIED_TYPE: cls
+  LOCATION_LUNG_PARENCHYMA: cls
+  MUTATION_STATUS: cls
+  MUTATION_TYPE: cls
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT: cls
+  PERFORMANCE_STATUS_TIMING: cls
+  PRIMARY_SITE_OTHER: cls
+  PRIMARY_SITE_PATIENT: cls
+  PROSPECTIVE_COLLECTION: cls
+  PULMONARY_FUNCTION_TEST_INDICATOR: cls
+  RACE: cls
+  RADIATION_TREATMENT_ADJUVANT: cls
+  RESIDUAL_TUMOR: cls
+  RETROSPECTIVE_COLLECTION: cls
+  SAMPLE_COUNT: reg
+  SEX: cls
+  SMOKING_PACK_YEARS: reg
+  SMOKING_YEAR_STARTED: reg
+  SMOKING_YEAR_STOPPED: reg
+  TARGETED_MOLECULAR_THERAPY: cls
+  TISSUE_SOURCE_SITE: cls
+  TOBACCO_SMOKING_HISTORY_INDICATOR: reg
+  TREATMENT_OUTCOME_FIRST_COURSE: cls
+  TUMOR_STATUS: cls
+  lung-cancer-subtyping: cls
+tasks_to_run:
+- AGE
+- AJCC_METASTASIS_PATHOLOGIC_PM
+- AJCC_NODES_PATHOLOGIC_PN
+- AJCC_PATHOLOGIC_TUMOR_STAGE
+- AJCC_STAGING_EDITION
+- AJCC_TUMOR_PATHOLOGIC_PT
+- ALK_ANALYSIS_TYPE
+- ALK_TRANSLOCATION_STATUS
+- CARBON_MONOXIDE_DIFFUSION_DLCO
+- DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS
+- DFS_MONTHS
+- DFS_STATUS
+- ECOG_SCORE
+- ETHNICITY
+- FEV1_FVC_RATIO_POSTBRONCHOLIATOR
+- FEV1_FVC_RATIO_PREBRONCHOLIATOR
+- FEV1_PERCENT_REF_POSTBRONCHOLIATOR
+- FEV1_PERCENT_REF_PREBRONCHOLIATOR
+- HISTOLOGICAL_DIAGNOSIS
+- HISTORY_NEOADJUVANT_TRTYN
+- HISTORY_OTHER_MALIGNANCY
+- ICD_10
+- ICD_O_3_HISTOLOGY
+- ICD_O_3_SITE
+- INITIAL_PATHOLOGIC_DX_YEAR
+- KARNOFSKY_PERFORMANCE_SCORE
+- KRAS_GENE_ANALYSIS_INDICATOR
+- KRAS_MUTATION
+- KRAS_MUTATION_IDENTIFIED_TYPE
+- LOCATION_LUNG_PARENCHYMA
+- MUTATION_STATUS
+- MUTATION_TYPE
+- NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT
+- OS_MONTHS
+- OS_STATUS
+- PERFORMANCE_STATUS_TIMING
+- PRIMARY_SITE_OTHER
+- PRIMARY_SITE_PATIENT
+- PROSPECTIVE_COLLECTION
+- PULMONARY_FUNCTION_TEST_INDICATOR
+- RACE
+- RADIATION_TREATMENT_ADJUVANT
+- RESIDUAL_TUMOR
+- RETROSPECTIVE_COLLECTION
+- SAMPLE_COUNT
+- SEX
+- SMOKING_PACK_YEARS
+- SMOKING_YEAR_STARTED
+- SMOKING_YEAR_STOPPED
+- TARGETED_MOLECULAR_THERAPY
+- TISSUE_SOURCE_SITE
+- TOBACCO_SMOKING_HISTORY_INDICATOR
+- TREATMENT_OUTCOME_FIRST_COURSE
+- TUMOR_STATUS
+- AJCC_PATHOLOGIC_TUMOR_STAGE_reduced
+- lung-cancer-subtyping
+label_dict:
+  AJCC_METASTASIS_PATHOLOGIC_PM:
+    M0: 0
+    M1: 1
+    M1a: 2
+    M1b: 3
+    MX: 4
+  AJCC_NODES_PATHOLOGIC_PN:
+    N0: 0
+    N1: 1
+    N2: 2
+    N3: 3
+    NX: 4
+  AJCC_PATHOLOGIC_TUMOR_STAGE:
+    Stage I: 0
+    Stage IA: 1
+    Stage IB: 2
+    Stage II: 3
+    Stage IIA: 4
+    Stage IIB: 5
+    Stage III: 6
+    Stage IIIA: 7
+    Stage IIIB: 8
+    Stage IV: 9
+  AJCC_PATHOLOGIC_TUMOR_STAGE_reduced:
+    Stage I: 0
+    Stage II: 1
+    Stage III: 2
+    Stage IV: 3
+  AJCC_STAGING_EDITION:
+    3rd: 0
+    4th: 1
+    5th: 2
+    6th: 3
+    7th: 4
+  AJCC_TUMOR_PATHOLOGIC_PT:
+    T1: 0
+    T1a: 1
+    T1b: 2
+    T2: 3
+    T2a: 4
+    T2b: 5
+    T3: 6
+    T4: 7
+    TX: 8
+  ALK_ANALYSIS_TYPE:
+    FISH: 0
+    IHC: 1
+    RT-PCR: 2
+  ALK_TRANSLOCATION_STATUS:
+    'NO': 0
+    'YES': 1
+  DFS_STATUS:
+    0:DiseaseFree: 0
+    1:Recurred/Progressed: 1
+  ETHNICITY:
+    HISPANIC OR LATINO: 0
+    NOT HISPANIC OR LATINO: 1
+  HISTOLOGICAL_DIAGNOSIS:
+    Lung Adenocarcinoma: 0
+    Lung Squamous Cell Carcinoma: 1
+  HISTORY_NEOADJUVANT_TRTYN:
+    'No': 0
+    'Yes': 1
+    Yes, Pharmaceutical Treatment Prior to Resection: 2
+  HISTORY_OTHER_MALIGNANCY:
+    'No': 0
+    'Yes': 1
+    Yes, History of Prior Malignancy: 2
+    Yes, History of Synchronous/Bilateral Malignancy: 3
+  ICD_10:
+    C34.0: 0
+    C34.1: 1
+    C34.10: 2
+    C34.2: 3
+    C34.3: 4
+    C34.30: 5
+    C34.8: 6
+    C34.9: 7
+  ICD_O_3_HISTOLOGY:
+    Mar-07: 0
+    Mar-10: 1
+    Mar-30: 2
+    Mar-40: 3
+    Mar-50: 4
+    Mar-52: 5
+    Mar-53: 6
+    Mar-55: 7
+    Mar-60: 8
+    Mar-70: 9
+    Mar-71: 10
+    Mar-72: 11
+    Mar-73: 12
+    Mar-80: 13
+    Mar-83: 14
+    Mar-90: 15
+  ICD_O_3_SITE:
+    C34.0: 0
+    C34.1: 1
+    C34.2: 2
+    C34.3: 3
+    C34.8: 4
+    C34.9: 5
+  KRAS_GENE_ANALYSIS_INDICATOR:
+    'NO': 0
+    'YES': 1
+  KRAS_MUTATION:
+    'NO': 0
+    'YES': 1
+  KRAS_MUTATION_IDENTIFIED_TYPE:
+    G12A: 0
+    G12C: 1
+    G12D: 2
+    G12S: 3
+    G12V: 4
+    Other: 5
+  LOCATION_LUNG_PARENCHYMA:
+    Central Lung: 0
+    Peripheral Lung: 1
+  MUTATION_STATUS:
+    'NO': 0
+    'YES': 1
+  MUTATION_TYPE:
+    Exon 19 Deletion: 0
+    L858R: 1
+    L861Q: 2
+    Other: 3
+    T790M: 4
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT:
+    'NO': 0
+    'YES': 1
+  OS_STATUS:
+    0:LIVING: 0
+    1:DECEASED: 1
+  PERFORMANCE_STATUS_TIMING:
+    Other: 0
+    Post-Adjuvant Therapy: 1
+    Pre-Adjuvant Therapy: 2
+    Preoperative: 3
+  PRIMARY_SITE_OTHER:
+    ALL 3 LOBES OF RT LUNG: 0
+    L-Upper+Lower: 1
+    Left Lingula: 2
+    Left lingula: 3
+    Left lung: 4
+    Left lung, main bronchus: 5
+    Left upper and Left lower: 6
+    Lingula: 7
+    RUL and RML: 8
+    Right Upper and Right Middle: 9
+    Right middle/lower - unsure which lobe: 10
+    Right upper, lower: 11
+    right upper + middle lobes: 12
+  PRIMARY_SITE_PATIENT:
+    Bronchial: 0
+    L-Lower: 1
+    L-Upper: 2
+    Other (please specify): 3
+    R-Lower: 4
+    R-Middle: 5
+    R-Upper: 6
+  PROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  PULMONARY_FUNCTION_TEST_INDICATOR:
+    'NO': 0
+    'YES': 1
+  RACE:
+    AMERICAN INDIAN OR ALASKA NATIVE: 0
+    ASIAN: 1
+    BLACK OR AFRICAN AMERICAN: 2
+    WHITE: 3
+  RADIATION_TREATMENT_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  RESIDUAL_TUMOR:
+    R0: 0
+    R1: 1
+    R2: 2
+    RX: 3
+  RETROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  SEX:
+    Female: 0
+    MALE: 1
+    Male: 2
+  TARGETED_MOLECULAR_THERAPY:
+    'NO': 0
+    'YES': 1
+  TISSUE_SOURCE_SITE:
+    '18': 0
+    '21': 1
+    '22': 2
+    '33': 3
+    '34': 4
+    '35': 5
+    '37': 6
+    '38': 7
+    '39': 8
+    '43': 9
+    '44': 10
+    '46': 11
+    '49': 12
+    4B: 13
+    '5': 14
+    '50': 15
+    '51': 16
+    '52': 17
+    '53': 18
+    '55': 19
+    '56': 20
+    '58': 21
+    '60': 22
+    '62': 23
+    '63': 24
+    '64': 25
+    '66': 26
+    '67': 27
+    '68': 28
+    '69': 29
+    6A: 30
+    '70': 31
+    '71': 32
+    '73': 33
+    '75': 34
+    '77': 35
+    '78': 36
+    '79': 37
+    '80': 38
+    '83': 39
+    '85': 40
+    '86': 41
+    '90': 42
+    '91': 43
+    '92': 44
+    '93': 45
+    '94': 46
+    '95': 47
+    '96': 48
+    '97': 49
+    '98': 50
+    '99': 51
+    J1: 52
+    J2: 53
+    L3: 54
+    L4: 55
+    L9: 56
+    LA: 57
+    MF: 58
+    MN: 59
+    MP: 60
+    NC: 61
+    NJ: 62
+    NK: 63
+    O1: 64
+    O2: 65
+    S2: 66
+    XC: 67
+  TREATMENT_OUTCOME_FIRST_COURSE:
+    Complete Remission/Response: 0
+    Partial Remission/Response: 1
+    Progressive Disease: 2
+    Stable Disease: 3
+  TUMOR_STATUS:
+    TUMOR FREE: 0
+    WITH TUMOR: 1
+  lung-cancer-subtyping:
+    luad: 0
+    lusc: 1
+    normal: 2

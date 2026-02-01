@@ -1,0 +1,377 @@
+all_task_dict:
+  OS: surv
+  DFS: surv
+  AGE: reg
+  AJCC_CLINICAL_TUMOR_STAGE: cls
+  AJCC_METASTASIS_CLINICAL_CM: cls
+  AJCC_METASTASIS_PATHOLOGIC_PM: cls
+  AJCC_NODES_CLINICAL_CN: cls
+  AJCC_NODES_CLINICAL_CT: cls
+  AJCC_NODES_PATHOLOGIC_PN: cls
+  AJCC_PATHOLOGIC_TUMOR_STAGE: cls
+  AJCC_PATHOLOGIC_TUMOR_STAGE_reduced: cls
+  AJCC_STAGING_EDITION: cls
+  AJCC_TUMOR_PATHOLOGIC_PT: cls
+  ALCOHOL_CONSUMPTION_FREQUENCY: reg
+  ALCOHOL_HISTORY_DOCUMENTED: cls
+  BIRTH_COUNTRY: cls
+  CANCER_PROCUREMENT_STATE_PROVINCE: cls
+  CITY_OF_PROCUREMENT: cls
+  COLUMNAR_METAPLASIA_GOBLET_CELL_INDICATOR: cls
+  DAILY_ALCOHOL: reg
+  DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS: reg
+  ECOG_SCORE: reg
+  ESOPHAGEAL_TUMOR_LOCATION_CENTERED: cls
+  ESOPHAGEAL_TUMOR_LOCATION_INVOLVED: cls
+  ESOPH_COLUMNAR_METAPLASIA_INDICATOR: cls
+  ESOPH_NON_CA_DEGREE_OF_DYSPLASIA: cls
+  ETHNICITY: cls
+  FAMILY_HISTORY_ESOPH_GASTIC_CANCER: cls
+  GRADE: cls
+  HEIGHT: reg
+  HISTOLOGICAL_DIAGNOSIS: cls
+  HISTORY_BARRETTS_ESOPHAGEAL_INDICATOR: cls
+  HISTORY_IF_BARRETTS_GOBLET_CELL_INDICATOR: cls
+  HISTORY_OTHER_MALIGNANCY: cls
+  HISTORY_REFLUX_DISEASE_TREATMENT: cls
+  H_PYLORI_INFECTION: cls
+  ICD_10: cls
+  ICD_O_3_HISTOLOGY: cls
+  ICD_O_3_SITE: cls
+  INITIAL_DIAGNOSIS_ESOPHAGEAL_CA_TYPE: cls
+  INITIAL_PATHOLOGIC_DX_YEAR: reg
+  KARNOFSKY_PERFORMANCE_SCORE: reg
+  LYMPH_NODES_EXAMINED: cls
+  LYMPH_NODES_EXAMINED_HE_COUNT: reg
+  LYMPH_NODES_EXAMINED_IHC_COUNT: reg
+  LYMPH_NODE_EXAMINED_COUNT: reg
+  LYMPH_NODE_SPRD_RADIOGRAPH_EVIDENCE: cls
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT: cls
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER: cls
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT: cls
+  NUMBER_OF_RELATIVES_DIAGNOSED: reg
+  PATIENT_TO_UNDERGO_SURGERY: cls
+  PHARMACEUTICAL_TX_ADJUVANT: cls
+  PROSPECTIVE_COLLECTION: cls
+  RACE: cls
+  RADIATION_TREATMENT_ADJUVANT: cls
+  REFLUX_HISTORY: cls
+  RESIDUAL_TUMOR: cls
+  RETROSPECTIVE_COLLECTION: cls
+  SAMPLE_COUNT: reg
+  SEX: cls
+  SLIDE_TYPE: cls
+  SMOKING_PACK_YEARS: reg
+  SMOKING_YEAR_STARTED: reg
+  SMOKING_YEAR_STOPPED: reg
+  TISSUE_SOURCE_SITE: cls
+  TOBACCO_SMOKING_HISTORY_INDICATOR: reg
+  TREATMENT_PRIOR_TO_SURGERY_INDICATOR: cls
+  TUMOR_SAMPLE_PROCUREMENT_COUNTRY: cls
+  TUMOR_STATUS: cls
+  WEIGHT: reg
+tasks_to_run:
+- AJCC_PATHOLOGIC_TUMOR_STAGE_reduced
+- AJCC_TUMOR_PATHOLOGIC_PT
+- HISTOLOGICAL_DIAGNOSIS
+- GRADE
+- OS_MONTHS
+label_dict:
+  AJCC_CLINICAL_TUMOR_STAGE:
+    Stage IA: 0
+    Stage IB: 1
+    Stage II: 2
+    Stage IIA: 3
+    Stage IIB: 4
+    Stage III: 5
+    Stage IIIA: 6
+    Stage IIIB: 7
+    Stage IIIC: 8
+    Stage IV: 9
+    Stage IVA: 10
+    Stage IVB: 11
+  AJCC_METASTASIS_CLINICAL_CM:
+    M0: 0
+    M1: 1
+    M1a: 2
+    M1b: 3
+    MX: 4
+  AJCC_METASTASIS_PATHOLOGIC_PM:
+    M0: 0
+    M1: 1
+    M1a: 2
+    MX: 3
+  AJCC_NODES_CLINICAL_CN:
+    N0: 0
+    N1: 1
+    N2: 2
+    NX: 3
+  AJCC_NODES_CLINICAL_CT:
+    T1: 0
+    T2: 1
+    T3: 2
+    T4: 3
+    TX: 4
+  AJCC_NODES_PATHOLOGIC_PN:
+    N0: 0
+    N1: 1
+    N2: 2
+    N3: 3
+    NX: 4
+  AJCC_PATHOLOGIC_TUMOR_STAGE:
+    Stage I: 0
+    Stage IA: 1
+    Stage IB: 2
+    Stage II: 3
+    Stage IIA: 4
+    Stage IIB: 5
+    Stage III: 6
+    Stage IIIA: 7
+    Stage IIIB: 8
+    Stage IIIC: 9
+    Stage IV: 10
+    Stage IVA: 11
+  AJCC_PATHOLOGIC_TUMOR_STAGE_reduced:
+    Stage I: 0
+    Stage II: 1
+    Stage III: 2
+    Stage IV: 3
+  AJCC_STAGING_EDITION:
+    5th: 0
+    6th: 1
+    7th: 2
+  AJCC_TUMOR_PATHOLOGIC_PT:
+    T0: 0
+    T1: 1
+    T2: 2
+    T3: 3
+    T4: 4
+    T4a: 5
+  ALCOHOL_HISTORY_DOCUMENTED:
+    'NO': 0
+    'YES': 1
+  BIRTH_COUNTRY:
+    Australia: 0
+    Brazil: 1
+    Bulgaria: 2
+    Russia: 3
+    Ukraine: 4
+    United Kingdom: 5
+    United States: 6
+    Vietnam: 7
+  CANCER_PROCUREMENT_STATE_PROVINCE:
+    Delaware: 0
+    Georgia: 1
+    Hanoi: 2
+    Indiana: 3
+    MI: 4
+    Mi: 5
+    Michigan: 6
+    NC: 7
+    New York: 8
+    Ontario: 9
+    Sao Paulo: 10
+    Scotland: 11
+    TX: 12
+    Texas: 13
+    Victoria: 14
+    ZH: 15
+    az: 16
+    texas: 17
+  CITY_OF_PROCUREMENT:
+    ANn Arbor: 0
+    Ann Arbor: 1
+    Ann arbor: 2
+    Atlanta: 3
+    Barretos: 4
+    Dundee: 5
+    Durham: 6
+    Hanoi: 7
+    Houston: 8
+    Indianapolis: 9
+    Kiev: 10
+    LVIV: 11
+    London: 12
+    Lviv: 13
+    Melbourne: 14
+    New York: 15
+    Newark: 16
+    Rotterdam: 17
+    Saint Petersburg: 18
+    Saint petersburg: 19
+    Toronto: 20
+    Tver: 21
+    houston: 22
+    phoenix: 23
+  COLUMNAR_METAPLASIA_GOBLET_CELL_INDICATOR:
+    'NO': 0
+    'YES': 1
+  DFS_STATUS:
+    0:DiseaseFree: 0
+    1:Recurred/Progressed: 1
+  ESOPHAGEAL_TUMOR_LOCATION_CENTERED:
+    Distal: 0
+    Mid: 1
+    Proximal: 2
+  ESOPHAGEAL_TUMOR_LOCATION_INVOLVED:
+    Distal: 0
+    Mid: 1
+    Mid|Distal: 2
+    Proximal: 3
+    Proximal|Mid: 4
+  ESOPH_COLUMNAR_METAPLASIA_INDICATOR:
+    'NO': 0
+    'YES': 1
+  ESOPH_NON_CA_DEGREE_OF_DYSPLASIA:
+    High grade dysplasia: 0
+    Low grade dysplasia: 1
+    Negative/no dysplasia: 2
+  ETHNICITY:
+    HISPANIC OR LATINO: 0
+    NOT HISPANIC OR LATINO: 1
+  FAMILY_HISTORY_ESOPH_GASTIC_CANCER:
+    'NO': 0
+    'YES': 1
+  GRADE:
+    G1: 0
+    G2: 1
+    G3: 2
+    GX: 3
+  HISTOLOGICAL_DIAGNOSIS:
+    Esophagus Adenocarcinoma, NOS: 0
+    Esophagus Squamous Cell Carcinoma: 1
+  HISTORY_BARRETTS_ESOPHAGEAL_INDICATOR:
+    'No': 0
+    Yes-UK: 1
+    Yes-USA: 2
+  HISTORY_IF_BARRETTS_GOBLET_CELL_INDICATOR:
+    'NO': 0
+    'YES': 1
+  HISTORY_OTHER_MALIGNANCY:
+    'No': 0
+    'Yes': 1
+  HISTORY_REFLUX_DISEASE_TREATMENT:
+    Medically Treated: 0
+    Medically Treated|Surgically Treated: 1
+    No Treatment: 2
+  H_PYLORI_INFECTION:
+    Current: 0
+    Never: 1
+  ICD_10:
+    C15.3: 0
+    C15.4: 1
+    C15.5: 2
+    C15.9: 3
+    C16.0: 4
+  ICD_O_3_HISTOLOGY:
+    8070/3: 0
+    8071/3: 1
+    8083/3: 2
+    8140/3: 3
+    8211/3: 4
+  ICD_O_3_SITE:
+    C15.1: 0
+    C15.3: 1
+    C15.4: 2
+    C15.5: 3
+    C15.9: 4
+    C16.0: 5
+  INITIAL_DIAGNOSIS_ESOPHAGEAL_CA_TYPE:
+    Screening: 0
+    Surveillance: 1
+    Symptomatic: 2
+  LYMPH_NODES_EXAMINED:
+    'NO': 0
+    'YES': 1
+  LYMPH_NODE_SPRD_RADIOGRAPH_EVIDENCE:
+    'NO': 0
+    'YES': 1
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT:
+    Endoscopic Biopsy: 0
+    'Other method, specify:': 1
+    Surgical Resection: 2
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER:
+    Cytology: 0
+    Esophageal brushing: 1
+    Surgery: 2
+    Surgical Resection: 3
+    Surgical Resection of the Esophagus: 4
+    Surgical resection: 5
+    Tumor Resection: 6
+    surgical resection: 7
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT:
+    'NO': 0
+    'YES': 1
+  OS_STATUS:
+    0:LIVING: 0
+    1:DECEASED: 1
+  PATIENT_TO_UNDERGO_SURGERY:
+    'No': 0
+    Surgery already performed: 1
+    'Yes': 2
+  PHARMACEUTICAL_TX_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  PROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  RACE:
+    ASIAN: 0
+    BLACK OR AFRICAN AMERICAN: 1
+    WHITE: 2
+  RADIATION_TREATMENT_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  REFLUX_HISTORY:
+    'NO': 0
+    'YES': 1
+  RESIDUAL_TUMOR:
+    R0: 0
+    R1: 1
+    R2: 2
+    RX: 3
+  RETROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  SEX:
+    Female: 0
+    Male: 1
+  SLIDE_TYPE:
+    DX1: 0
+    DX2: 1
+  TISSUE_SOURCE_SITE:
+    2H: 0
+    IG: 1
+    JY: 2
+    KH: 3
+    L5: 4
+    L7: 5
+    LN: 6
+    M9: 7
+    Q9: 8
+    R6: 9
+    RE: 10
+    S8: 11
+    V5: 12
+    VR: 13
+    X8: 14
+    XP: 15
+    Z6: 16
+    ZR: 17
+  TREATMENT_PRIOR_TO_SURGERY_INDICATOR:
+    No Treatment: 0
+    Radiation and Chemotherapy: 1
+  TUMOR_SAMPLE_PROCUREMENT_COUNTRY:
+    Australia: 0
+    Brazil: 1
+    Bulgaria: 2
+    Canada: 3
+    Netherlands: 4
+    Russia: 5
+    Ukraine: 6
+    United Kingdom: 7
+    United States: 8
+    Vietnam: 9
+  TUMOR_STATUS:
+    TUMOR FREE: 0
+    WITH TUMOR: 1

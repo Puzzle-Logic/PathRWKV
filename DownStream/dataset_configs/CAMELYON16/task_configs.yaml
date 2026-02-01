@@ -1,0 +1,8 @@
+all_task_dict:
+  BREAST_METASTASIS: cls
+tasks_to_run:
+- BREAST_METASTASIS
+label_dict:
+  BREAST_METASTASIS:
+    normal: 0
+    tumor: 1

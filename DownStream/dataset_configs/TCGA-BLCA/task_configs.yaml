@@ -1,0 +1,697 @@
+all_task_dict:
+  OS: surv
+  DFS: surv
+  COMPLETE_RESPONSE: surv
+  AGE: reg
+  AJCC_INCIDENTAL_PROSTATE_CANCER: cls
+  AJCC_METASTASIS_PATHOLOGIC_PM: cls
+  AJCC_NODES_PATHOLOGIC_PN: cls
+  AJCC_PATHOLOGIC_TUMOR_STAGE: cls
+  AJCC_PATHOLOGIC_TUMOR_STAGE_reduced: cls
+  AJCC_STAGING_EDITION: cls
+  AJCC_TUMOR_PATHOLOGIC_PT: cls
+  ANGIOLYMPHATIC_INVASION: cls
+  CLIN_T_STAGE: cls
+  DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS: reg
+  ECOG_SCORE: reg
+  ETHNICITY: cls
+  EXTRACAPSULAR_EXTENSION: cls
+  EXTRACAPSULAR_EXTENSION_PRESENT: cls
+  FAMILY_HISTORY_CANCER_RELATIONSHIP: cls
+  FAMILY_HISTORY_CANCER_TYPE: cls
+  GRADE: cls
+  HEIGHT: reg
+  HISTOLOGICAL_SUBTYPE: cls
+  HISTORY_NEOADJUVANT_TRTYN: cls
+  HISTORY_OTHER_MALIGNANCY: cls
+  ICD_10: cls
+  ICD_O_3_HISTOLOGY: cls
+  ICD_O_3_SITE: cls
+  INCIDENTAL_PROSTATE_CANCER: cls
+  INITIAL_PATHOLOGIC_DX_YEAR: reg
+  KARNOFSKY_PERFORMANCE_SCORE: reg
+  LYMPH_NODES_EXAMINED: cls
+  LYMPH_NODES_EXAMINED_HE_COUNT: reg
+  LYMPH_NODE_EXAMINED_COUNT: reg
+  METASTATIC_SITE_OTHER: cls
+  METASTATIC_SITE_PATIENT: cls
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT: cls
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER: cls
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT: cls
+  NONINVASIVE_BLADDER_CA_TX_TYPE: cls
+  NONINVASIVE_BLADDER_HISTORY: cls
+  OCCUPATION_CURRENT: cls
+  OCCUPATION_PRIMARY_CHEMICAL_EXPOSURE: cls
+  OCCUPATION_PRIMARY_YEARS_WORKED: reg
+  PHARMACEUTICAL_TX_ADJUVANT: cls
+  PRIMARY_SITE_PATIENT: cls
+  PROSPECTIVE_COLLECTION: cls
+  RACE: cls
+  RADIATION_TREATMENT_ADJUVANT: cls
+  RETROSPECTIVE_COLLECTION: cls
+  SAMPLE_COUNT: reg
+  SEX: cls
+  SLIDE_TYPE: cls
+  SMOKING_PACK_YEARS: reg
+  SMOKING_YEAR_STARTED: reg
+  SMOKING_YEAR_STOPPED: reg
+  TISSUE_SOURCE_SITE: cls
+  TOBACCO_SMOKING_HISTORY_INDICATOR: reg
+  TREATMENT_OUTCOME_FIRST_COURSE: cls
+  TUMOR_STATUS: cls
+  TX_90DAYS_POST_RESECTION: cls
+  TX_INDUCTION_COURSES_INDICATOR: cls
+  TX_MAINTENANCE_COURSES_INDICATOR: cls
+  WEIGHT: reg
+tasks_to_run:
+- AGE
+- AJCC_INCIDENTAL_PROSTATE_CANCER
+- AJCC_METASTASIS_PATHOLOGIC_PM
+- AJCC_NODES_PATHOLOGIC_PN
+- AJCC_PATHOLOGIC_TUMOR_STAGE
+- AJCC_STAGING_EDITION
+- AJCC_TUMOR_PATHOLOGIC_PT
+- ANGIOLYMPHATIC_INVASION
+- CLIN_T_STAGE
+- DAYS_TO_INITIAL_PATHOLOGIC_DIAGNOSIS
+- DFS_MONTHS
+- DFS_STATUS
+- ECOG_SCORE
+- ETHNICITY
+- EXTRACAPSULAR_EXTENSION
+- EXTRACAPSULAR_EXTENSION_PRESENT
+- FAMILY_HISTORY_CANCER_RELATIONSHIP
+- FAMILY_HISTORY_CANCER_TYPE
+- GRADE
+- HEIGHT
+- HISTOLOGICAL_SUBTYPE
+- HISTORY_NEOADJUVANT_TRTYN
+- HISTORY_OTHER_MALIGNANCY
+- ICD_10
+- ICD_O_3_HISTOLOGY
+- ICD_O_3_SITE
+- INCIDENTAL_PROSTATE_CANCER
+- INITIAL_PATHOLOGIC_DX_YEAR
+- KARNOFSKY_PERFORMANCE_SCORE
+- LYMPH_NODES_EXAMINED
+- LYMPH_NODES_EXAMINED_HE_COUNT
+- LYMPH_NODE_EXAMINED_COUNT
+- METASTATIC_SITE_OTHER
+- METASTATIC_SITE_PATIENT
+- METHOD_OF_INITIAL_SAMPLE_PROCUREMENT
+- METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER
+- NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT
+- NONINVASIVE_BLADDER_CA_TX_TYPE
+- NONINVASIVE_BLADDER_HISTORY
+- OCCUPATION_CURRENT
+- OCCUPATION_PRIMARY_CHEMICAL_EXPOSURE
+- OCCUPATION_PRIMARY_YEARS_WORKED
+- OS_MONTHS
+- OS_STATUS
+- PHARMACEUTICAL_TX_ADJUVANT
+- PRIMARY_SITE_PATIENT
+- PROSPECTIVE_COLLECTION
+- RACE
+- RADIATION_TREATMENT_ADJUVANT
+- RETROSPECTIVE_COLLECTION
+- SAMPLE_COUNT
+- SEX
+- SMOKING_PACK_YEARS
+- SMOKING_YEAR_STARTED
+- SMOKING_YEAR_STOPPED
+- TIME_TO_COMPLETE_RESPONSE
+- TISSUE_SOURCE_SITE
+- TOBACCO_SMOKING_HISTORY_INDICATOR
+- TREATMENT_OUTCOME_FIRST_COURSE
+- TUMOR_STATUS
+- TX_90DAYS_POST_RESECTION
+- TX_COMPLETE_RESPONSE
+- TX_INDUCTION_COURSES_INDICATOR
+- TX_MAINTENANCE_COURSES_INDICATOR
+- WEIGHT
+- SLIDE_TYPE
+- AJCC_PATHOLOGIC_TUMOR_STAGE_reduced
+label_dict:
+  AJCC_INCIDENTAL_PROSTATE_CANCER:
+    pT1a: 0
+    pT1c: 1
+    pT2: 2
+    pT2a: 3
+    pT2b: 4
+    pT2c: 5
+    pT3: 6
+    pT3a: 7
+    pT3b: 8
+  AJCC_METASTASIS_PATHOLOGIC_PM:
+    M0: 0
+    M1: 1
+    MX: 2
+  AJCC_NODES_PATHOLOGIC_PN:
+    N0: 0
+    N1: 1
+    N2: 2
+    N3: 3
+    NX: 4
+  AJCC_PATHOLOGIC_TUMOR_STAGE:
+    Stage I: 0
+    Stage II: 1
+    Stage III: 2
+    Stage IV: 3
+  AJCC_PATHOLOGIC_TUMOR_STAGE_reduced:
+    Stage I: 0
+    Stage II: 1
+    Stage III: 2
+    Stage IV: 3
+  AJCC_STAGING_EDITION:
+    2nd: 0
+    4th: 1
+    5th: 2
+    6th: 3
+    7th: 4
+  AJCC_TUMOR_PATHOLOGIC_PT:
+    T0: 0
+    T1: 1
+    T2: 2
+    T2a: 3
+    T2b: 4
+    T3: 5
+    T3a: 6
+    T3b: 7
+    T4: 8
+    T4a: 9
+    T4b: 10
+    TX: 11
+  ANGIOLYMPHATIC_INVASION:
+    'NO': 0
+    'YES': 1
+    '[Not Reported]': 2
+  CLIN_T_STAGE:
+    T1: 0
+    T2: 1
+    T2a: 2
+    T2b: 3
+    T3: 4
+    T3a: 5
+    T3b: 6
+    T4: 7
+    T4a: 8
+    TX: 9
+  DFS_STATUS:
+    0:DiseaseFree: 0
+    1:Recurred/Progressed: 1
+  ETHNICITY:
+    HISPANIC OR LATINO: 0
+    NOT HISPANIC OR LATINO: 1
+  EXTRACAPSULAR_EXTENSION:
+    'NO': 0
+    'YES': 1
+  EXTRACAPSULAR_EXTENSION_PRESENT:
+    Extensive: 0
+    Focal: 1
+  FAMILY_HISTORY_CANCER_RELATIONSHIP:
+    Brother: 0
+    Brother|Brother: 1
+    Brother|Father: 2
+    Brother|Mother|[Not Available]: 3
+    Brother|Sister: 4
+    Brother|Sister|Sister: 5
+    Child: 6
+    Father: 7
+    Father|Brother: 8
+    Father|Child: 9
+    Father|Grandfather|Brother: 10
+    Father|Grandfather|Sister|Child: 11
+    Father|Mother: 12
+    Father|Sister: 13
+    Father|Sister|Brother: 14
+    Father|Sister|Sister: 15
+    Father|Sister|Sister|Brother|Brother|Child: 16
+    Grandfather: 17
+    Grandfather|Father: 18
+    Grandfather|Sister: 19
+    Grandmother: 20
+    Grandmother|Brother: 21
+    Mother: 22
+    Mother|Brother: 23
+    Mother|Brother|Sister: 24
+    Mother|Father: 25
+    Mother|Father|Brother: 26
+    Mother|Father|Child: 27
+    Mother|Father|Grandmother: 28
+    Mother|Grandmother: 29
+    Mother|Sister: 30
+    Mother|Sister|[Not Available]: 31
+    Mother|[Not Available]: 32
+    Mother|[Not Available]|[Not Available]: 33
+    Sister: 34
+    Sister|Brother: 35
+    Sister|Brother|Brother: 36
+    Sister|Father: 37
+    Sister|Father|Mother|[Not Available]: 38
+    Sister|Mother: 39
+    Sister|Sister: 40
+    '[Not Available]|[Not Available]': 41
+  FAMILY_HISTORY_CANCER_TYPE:
+    Bladder: 0
+    Bladder|Adrenal Cortical Tumor|Ovary-NOS: 1
+    Bladder|Bladder: 2
+    Bladder|Breast-Fem|Breast-Fem: 3
+    Bladder|Kidney-except Pelvis: 4
+    Bladder|NOS: 5
+    Bladder|Prostate: 6
+    Bladder|Prostate|Esophagus: 7
+    Bladder|Uterine: 8
+    Breast-Fem: 9
+    Breast-Fem|Breast-Fem|[Not Available]: 10
+    Breast-Fem|Head/Face/Neck: 11
+    Breast-Fem|Head/Face/Neck|Leukemia-NOS|Breast-Fem: 12
+    Breast-Fem|Liver-Primary-NOS: 13
+    Breast-Fem|Lung/Bronchus|Colon|Kidney-except Pelvis|Multiple Myeloma: 14
+    Breast-Fem|Lymphoma: 15
+    Breast-Fem|NOS: 16
+    Breast-Fem|Uterine|Bladder|Lung/Bronchus: 17
+    Breast-Fem|[Not Available]: 18
+    CNS: 19
+    Cervix: 20
+    Colon: 21
+    Colon|CNS: 22
+    Colon|Colon: 23
+    Colon|Colon|[Not Available]: 24
+    Colon|Kidney-except Pelvis|Ovary-NOS: 25
+    Colon|Melanoma: 26
+    Colon|[Not Available]: 27
+    Esophagus: 28
+    Esophagus|CNS: 29
+    GI: 30
+    GI|Colon: 31
+    GI|Leukemia-NOS: 32
+    Gallbladder: 33
+    Gallbladder|Prostate|Multiple Myeloma: 34
+    Gastric: 35
+    Gastric|Breast-Fem|CNS: 36
+    Gastric|NOS: 37
+    Gastric|Prostate: 38
+    Head/Face/Neck: 39
+    Head/Face/Neck|Lung/Bronchus: 40
+    Head/Face/Neck|Prostate: 41
+    Kidney-except Pelvis: 42
+    Kidney-except Pelvis|Bladder|Lymphoma: 43
+    Kidney-except Pelvis|Leukemia-NOS: 44
+    Leukemia-NOS: 45
+    Liver-Hepatoblastoma|Adrenal Cortical Tumor: 46
+    Liver-Primary-NOS: 47
+    Liver-Primary-NOS|Liver-Primary-NOS: 48
+    Liver-Primary-NOS|Pancreas: 49
+    Lung/Bronchus: 50
+    Lung/Bronchus|Breast-Fem: 51
+    Lung/Bronchus|CNS|CNS: 52
+    Lung/Bronchus|Colon: 53
+    Lung/Bronchus|Gynecology-NOS: 54
+    Lung/Bronchus|Leukemia-NOS: 55
+    Lung/Bronchus|Liver-Primary-NOS: 56
+    Lung/Bronchus|Lung/Bronchus|Colon: 57
+    Lymphoma: 58
+    Lymphoma|Colon: 59
+    Melanoma: 60
+    Multiple Myeloma: 61
+    NOS: 62
+    NOS|Gastric|Lung/Bronchus: 63
+    NOS|Pancreas: 64
+    Ovary-NOS: 65
+    Ovary-NOS|Gastric: 66
+    Ovary-NOS|Lung/Bronchus: 67
+    Ovary-NOS|Prostate: 68
+    Pancreas: 69
+    Pancreas|Breast-Fem: 70
+    Pancreas|Colon: 71
+    Pancreas|Leukemia-NOS: 72
+    Pancreas|Lung/Bronchus: 73
+    Prostate: 74
+    Prostate|Breast-Fem|Pancreas|Lung/Bronchus|Prostate|Breast-Fem: 75
+    Prostate|Colon: 76
+    Prostate|Colon|Rectum|Lung/Bronchus|Melanoma: 77
+    Prostate|Leukemia-NOS: 78
+    Prostate|Lung/Bronchus: 79
+    Prostate|Prostate: 80
+    Prostate|Prostate|Lung/Bronchus: 81
+    Prostate|Rectum: 82
+    Sarcoma: 83
+    Skin-Squamous cell carcinoma: 84
+    Testis|Breast-Fem|[Not Available]: 85
+    Uterine: 86
+    '[Not Available]|[Not Available]': 87
+  GRADE:
+    High Grade: 0
+    Low Grade: 1
+  HISTOLOGICAL_SUBTYPE:
+    Non-Papillary: 0
+    Papillary: 1
+  HISTORY_NEOADJUVANT_TRTYN:
+    'No': 0
+    'Yes': 1
+  HISTORY_OTHER_MALIGNANCY:
+    'No': 0
+    'Yes': 1
+  ICD_10:
+    C67.0: 0
+    C67.1: 1
+    C67.2: 2
+    C67.3: 3
+    C67.4: 4
+    C67.5: 5
+    C67.9: 6
+  ICD_O_3_HISTOLOGY:
+    8010/3: 0
+    8070/3: 1
+    8120/3: 2
+    8130/3: 3
+    8260/3: 4
+  ICD_O_3_SITE:
+    C67.0: 0
+    C67.1: 1
+    C67.2: 2
+    C67.3: 3
+    C67.4: 4
+    C67.5: 5
+    C67.9: 6
+  INCIDENTAL_PROSTATE_CANCER:
+    'NO': 0
+    'YES': 1
+  LYMPH_NODES_EXAMINED:
+    'NO': 0
+    'YES': 1
+  METASTATIC_SITE_OTHER:
+    Colon: 0
+    PROSTATE: 1
+    Peritoneum: 2
+    Ureter: 3
+    diverticulum: 4
+    ileocecum: 5
+  METASTATIC_SITE_PATIENT:
+    Bone: 0
+    Lung: 1
+    Lung|Bone: 2
+    Lung|Other: 3
+    Lymph node only: 4
+    Lymph node only|Lung|Liver: 5
+    Other: 6
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT:
+    Endoscopic Biopsy: 0
+    'Other method, specify:': 1
+    Transurethral resection (TURBT): 2
+  METHOD_OF_INITIAL_SAMPLE_PROCUREMENT_OTHER:
+    Bladder resection: 0
+    CT and cystoscopy: 1
+    Cystectomy: 2
+    Cystoprostatectomy: 3
+    Cystoscopy: 4
+    Cystoscopy with Biopsies: 5
+    Cystourethroscopy: 6
+    GREEN LIGHT LASER: 7
+    Open bx @ time of removal of benign ovary: 8
+    Partial Cystectomy, Lymphadenectomy: 9
+    Radical Cystectomy w/Nodal Dissection: 10
+    Radical Cystoprostatectomy: 11
+    Resection: 12
+    Surgical Resection: 13
+    Surgical resection: 14
+    TURP: 15
+    cystectomy: 16
+    cystoprostatectomy: 17
+    cystoscopy: 18
+    cystourethroscopy: 19
+    radical cystoprostatectomy: 20
+    resection of totaly urinary bladder: 21
+    surgical resection: 22
+    ultrasound: 23
+    urine cytology: 24
+  NEW_TUMOR_EVENT_AFTER_INITIAL_TREATMENT:
+    'NO': 0
+    'YES': 1
+  NONINVASIVE_BLADDER_CA_TX_TYPE:
+    Bacillus Calmette-Guerin (BCG): 0
+    Transurethral resection alone: 1
+  NONINVASIVE_BLADDER_HISTORY:
+    'NO': 0
+    'YES': 1
+  OCCUPATION_CURRENT:
+    Artist: 0
+    Attorney: 1
+    Builder: 2
+    CEO: 3
+    Campus Supervisor: 4
+    Chemistry professional: 5
+    City Government Worker: 6
+    Computer Analyst: 7
+    Computer Tech supporter: 8
+    Constant Disability: 9
+    Construction: 10
+    Consultant: 11
+    Corp Executive: 12
+    DISABLED: 13
+    Delivery Man: 14
+    Dental Assistant: 15
+    Dentist: 16
+    Disabled: 17
+    Driver: 18
+    Emergency Medicine Physician: 19
+    Engineer: 20
+    Farmer: 21
+    Firefighter: 22
+    General Contractor: 23
+    Homemaker: 24
+    House wife: 25
+    Housewife: 26
+    Investment Advisor: 27
+    Investment manager and economist: 28
+    Landscaper: 29
+    Livestock Industry: 30
+    Manager: 31
+    Mechanic: 32
+    Not known: 33
+    Nursing Professor: 34
+    Operator/Owner: 35
+    'Owner:  Liquor Store': 36
+    Pensioner: 37
+    Pharmacy Technician: 38
+    Phone Operator: 39
+    Rail line worker; Maintenance equiptment operator: 40
+    Real Estate: 41
+    Real Estate Management: 42
+    Restoration of plane engines & pilot: 43
+    Retail Sales: 44
+    Retired: 45
+    Retired (handicapped soldier): 46
+    Retired Computer Analyst: 47
+    Retired Homemaker: 48
+    Retired Mechanical Engineer: 49
+    Retired Refinery Worker: 50
+    Retired teacher: 51
+    Sales: 52
+    Sales Associate: 53
+    Sales Consultant: 54
+    Salesman: 55
+    Sheet Metal Fabricatoin: 56
+    TV REPAIRMAN: 57
+    Truck driver: 58
+    Unemployed: 59
+    Utility Worker: 60
+    Vendor: 61
+    Volunteer: 62
+    Wine Salesman: 63
+    Woodworker: 64
+    Writer: 65
+    activity aid at nursing home: 66
+    attorney: 67
+    baggage handler: 68
+    baggage handler at airport: 69
+    barber: 70
+    beekeeper: 71
+    building contractor: 72
+    business owner: 73
+    construction: 74
+    construction supervisor: 75
+    deceased: 76
+    design engineer: 77
+    electrician: 78
+    home maker: 79
+    housewife: 80
+    lawn care: 81
+    manager: 82
+    meat packer: 83
+    oil field worker: 84
+    pool service worker: 85
+    priest: 86
+    registered nurse: 87
+    retired: 88
+    retired factory worker: 89
+    software consultant: 90
+    teacher: 91
+    transportation supervisor: 92
+    unemployed: 93
+  OCCUPATION_PRIMARY_CHEMICAL_EXPOSURE:
+    ALUMINUM: 0
+    Agent Orange, Vietnam: 1
+    Benzine & Methylene Chloride: 2
+    Brief asbestos exposure from office: 3
+    Community College: 4
+    Diesel: 5
+    Many including arsenic: 6
+    No exposures: 7
+    None Known: 8
+    None Reported: 9
+    None known: 10
+    None reported: 11
+    Not specified: 12
+    Oil: 13
+    Orange Dioxin: 14
+    Pesticides: 15
+    Secondhand: 16
+    Teacher's aide: 17
+    Unspecified chemicals & solvents: 18
+    'Yes': 19
+    aircraft fuel, chemicals with 'chlor' in the name: 20
+    asbestos,cadmium, chromium, solvents, arsenic, ionising radiation: 21
+    benzenes/toluenes, made paroil: 22
+    coal gas and oil byproduct chemicals: 23
+    cooking fumes: 24
+    copper: 25
+    crack detection dyes, borax, cadmium, chromium, rust proofing: 26
+    diesel fumes: 27
+    disinfectant: 28
+    machine oil, nil else to note: 29
+    nil: 30
+    nil to note: 31
+    none: 32
+    petroleum products: 33
+    printing chemicals and ink: 34
+    printing ink: 35
+    quenching oil: 36
+    soldering, assembling and repairng electrical goods: 37
+    soldering, brazing: 38
+    ? solvents, coking plant fumes and residues, diesel exhaust fumes, trichlorethylene
+      perchloroethylene, brazing, soldering, resin fumesfrom hot box breaker core
+      machines
+    : 39
+    solvents, formaldehyde: 40
+  OS_STATUS:
+    0:LIVING: 0
+    1:DECEASED: 1
+  PHARMACEUTICAL_TX_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  PRIMARY_SITE_PATIENT:
+    Bladder - NOS: 0
+    Bladder - NOS|Dome|Trigone|Wall Anterior|Wall Lateral|Wall Posterior: 1
+    Bladder - NOS|Dome|Wall Lateral|Wall Posterior: 2
+    Bladder - NOS|Trigone|Wall NOS|Wall Anterior|Wall Lateral|Wall Posterior: 3
+    Bladder - NOS|Wall Anterior: 4
+    Bladder - NOS|Wall Anterior|Wall Lateral: 5
+    Bladder - NOS|Wall Anterior|Wall Posterior: 6
+    Bladder - NOS|Wall Lateral: 7
+    Bladder - NOS|Wall NOS: 8
+    Dome: 9
+    Dome|Neck|Wall Anterior|Wall Lateral: 10
+    Dome|Trigone|Wall Anterior|Wall Lateral: 11
+    Dome|Trigone|Wall Anterior|Wall Lateral|Wall Posterior: 12
+    Dome|Trigone|Wall Lateral|Wall Posterior: 13
+    Dome|Wall Anterior: 14
+    Dome|Wall Anterior|Wall Lateral|Wall Posterior: 15
+    Dome|Wall Anterior|Wall Posterior: 16
+    Dome|Wall Lateral|Wall Posterior: 17
+    Dome|Wall Posterior: 18
+    Neck: 19
+    Neck|Trigone|Wall Lateral: 20
+    Neck|Wall NOS: 21
+    Trigone: 22
+    Trigone|Wall Anterior|Wall Lateral|Wall Posterior: 23
+    Trigone|Wall Lateral: 24
+    Trigone|Wall Lateral|Wall Posterior: 25
+    Trigone|Wall Posterior: 26
+    Wall Anterior: 27
+    Wall Anterior|Wall Lateral|Wall Posterior: 28
+    Wall Anterior|Wall Posterior: 29
+    Wall Lateral: 30
+    Wall Lateral|Wall Posterior: 31
+    Wall NOS: 32
+    Wall Posterior: 33
+  PROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  RACE:
+    ASIAN: 0
+    BLACK OR AFRICAN AMERICAN: 1
+    WHITE: 2
+  RADIATION_TREATMENT_ADJUVANT:
+    'NO': 0
+    'YES': 1
+  RETROSPECTIVE_COLLECTION:
+    'NO': 0
+    'YES': 1
+  SEX:
+    Female: 0
+    Male: 1
+  SLIDE_TYPE:
+    DX1: 0
+    DX2: 1
+    DX3: 2
+    DX4: 3
+    DX5: 4
+    DX6: 5
+    DX7: 6
+    DX8: 7
+    DX9: 8
+  TISSUE_SOURCE_SITE:
+    2F: 0
+    4Z: 1
+    5N: 2
+    BL: 3
+    BT: 4
+    C4: 5
+    CF: 6
+    CU: 7
+    DK: 8
+    E5: 9
+    E7: 10
+    FD: 11
+    FJ: 12
+    FT: 13
+    G2: 14
+    GC: 15
+    GD: 16
+    GU: 17
+    GV: 18
+    H4: 19
+    HQ: 20
+    K4: 21
+    LC: 22
+    LT: 23
+    MV: 24
+    PQ: 25
+    S5: 26
+    SY: 27
+    UY: 28
+    XF: 29
+    YC: 30
+    YF: 31
+    ZF: 32
+  TREATMENT_OUTCOME_FIRST_COURSE:
+    Complete Remission/Response: 0
+    Partial Remission/Response: 1
+    Progressive Disease: 2
+    Stable Disease: 3
+  TUMOR_STATUS:
+    TUMOR FREE: 0
+    WITH TUMOR: 1
+  TX_90DAYS_POST_RESECTION:
+    'NO': 0
+    'YES': 1
+  TX_COMPLETE_RESPONSE:
+    'NO': 0
+    'YES': 1
+  TX_INDUCTION_COURSES_INDICATOR:
+    'NO': 0
+    'YES': 1
+  TX_MAINTENANCE_COURSES_INDICATOR:
+    'NO': 0
+    'YES': 1
