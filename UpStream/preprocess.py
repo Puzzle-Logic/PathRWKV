@@ -683,7 +683,7 @@ def parse_args():
     parser.add_argument("--mode", type=str, default=None, choices=["TCGA", None])
     parser.add_argument("--num_workers", type=int, default=None)
     parser.add_argument("--chunk_size", type=int, default=4)
-    parser.add_argument("--gen_thumbnails", type=bool, default=False)
+    parser.add_argument("--gen_thumbnails", action="store_true")
 
     return parser.parse_args()
 

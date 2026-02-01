@@ -75,9 +75,8 @@ def get_model(model_name, pretrained, device=None, compile_model=True, fp32=Fals
         checkpoint_path=pretrained if isinstance(pretrained, str) else None,
     )
     model = model.eval().to(device)
-    if not fp32:
-        model = model.bfloat16()
-    model = torch.compile(model) if compile_model is True else model
+    model = model.bfloat16() if not fp32 else model
+    model = torch.compile(model) if compile_model else model
     return model
 
 
@@ -307,8 +306,8 @@ def parse_args():
         "--model_name", type=str, default="hf_hub:prov-gigapath/prov-gigapath"
     )
     parser.add_argument("--pretrained", type=Union[str, bool], default=True)
-    parser.add_argument("--compile_model", type=bool, default=True)
-    parser.add_argument("--fp32", type=bool, default=False)
+    parser.add_argument("--compile_model", action="store_false")
+    parser.add_argument("--fp32", action="store_true")
     args = parser.parse_args()
     return args
 
