@@ -16,8 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 from torch.utils.data import IterableDataset, DataLoader, get_worker_info
 
 save_executor = ThreadPoolExecutor(max_workers=1)
-
-os.environ["HF_TOKEN"] = "YOUR_HF_TOKEN_HERE"
+os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN", "YOUR_HF_TOKEN_HERE")
 torch.set_float32_matmul_precision("high")
 
 
@@ -68,14 +67,16 @@ class StreamingTileDataset(IterableDataset):
             yield from self.process_slide(slide_dir)
 
 
-def get_model(model_name, pretrained, device=None, compile_model=True):
+def get_model(model_name, pretrained, device=None, compile_model=True, fp32=False):
     model = timm.create_model(
         model_name,
         num_classes=0,
         pretrained=pretrained if pretrained is True else False,
         checkpoint_path=pretrained if isinstance(pretrained, str) else None,
     )
-    model.eval().to(device).to(torch.bfloat16)
+    model = model.eval().to(device)
+    if not fp32:
+        model = model.bfloat16()
     model = torch.compile(model) if compile_model is True else model
     return model
 
@@ -124,7 +125,11 @@ def run_worker(rank, slide_chunks, args, global_counter, total_slides, num_gpus)
     )
 
     model = get_model(
-        args.model_name, args.pretrained, device, compile_model=args.compile_model
+        model_name=args.model_name,
+        pretrained=args.pretrained,
+        device=device,
+        compile_model=args.compile_model,
+        fp32=args.fp32,
     )
     global_bar = None
     monitor_thread = None
@@ -303,6 +308,7 @@ def parse_args():
     )
     parser.add_argument("--pretrained", type=Union[str, bool], default=True)
     parser.add_argument("--compile_model", type=bool, default=True)
+    parser.add_argument("--fp32", type=bool, default=False)
     args = parser.parse_args()
     return args
 
