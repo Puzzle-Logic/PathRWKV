@@ -79,48 +79,27 @@ class SlideDataset(Dataset):
             f"{self.mode} dataset initialized: {self.df.height} safetensors files found."
         )
 
-    def _load_coords(self, data_path):
-        with safe_open(data_path, framework="pt", device="cpu") as f:
-            coords_yx = f.get_tensor("coords_yx")
-        return coords_yx
-
-    def _load_features_by_indices(self, data_path, indices):
+    def _load_tiles(self, data_path):
         with safe_open(data_path, framework="pt", device="cpu") as f:
             image_features = f.get_tensor("features")
-            image_features = image_features[indices]
-        return image_features
+            coords_yx = f.get_tensor("coords_yx")
+        return image_features, coords_yx
 
-    def _sample_coords(self, coords_yx):
-        N = coords_yx.shape[0]
-        indices = torch.randperm(N)
-        coords_yx = coords_yx[indices]
-        return coords_yx, indices
+    def random_sampling(self, image_features, coords_yx):
+        indices = torch.randperm(len(image_features))
+        return image_features[indices], coords_yx[indices]
 
-    def _truncate_or_get_indices(self, coords_yx, indices=None):
-        N = coords_yx.shape[0]
-        if indices is None:
-            indices = torch.arange(N)
+    def _sample_tiles(self, image_features, coords_yx):
+        image_features, coords_yx = self.random_sampling(image_features, coords_yx)
+        return image_features, coords_yx
 
+    def _pad_or_truncate_tiles(self, image_features, coords_yx):
+        N, D = image_features.shape
         if N >= self.args.max_tiles:
+            image_features = image_features[: self.args.max_tiles]
             coords_yx = coords_yx[: self.args.max_tiles]
-            indices = indices[: self.args.max_tiles]
-            pad_size = 0
         else:
             pad_size = self.args.max_tiles - N
-            coords_yx = torch.cat(
-                (
-                    coords_yx,
-                    torch.zeros(
-                        (pad_size, 2), dtype=coords_yx.dtype, device=coords_yx.device
-                    ),
-                ),
-                dim=0,
-            )
-        return coords_yx, indices, pad_size
-
-    def _pad_features(self, image_features, pad_size):
-        if pad_size > 0:
-            D = image_features.shape[1]
             image_features = torch.cat(
                 (
                     image_features,
@@ -132,24 +111,28 @@ class SlideDataset(Dataset):
                 ),
                 dim=0,
             )
-        return image_features
+            coords_yx = torch.cat(
+                (
+                    coords_yx,
+                    torch.zeros(
+                        (pad_size, 2), dtype=coords_yx.dtype, device=coords_yx.device
+                    ),
+                ),
+                dim=0,
+            )
+
+        return image_features, coords_yx
 
     def __getitem__(self, idx):
         item_row = self.df.row(idx, named=True)
         slide_path = item_row["data_path"]
+        image_features, coords_yx = self._load_tiles(slide_path)
 
         if self.mode == "Train":
-            coords_yx = self._load_coords(slide_path)
-            coords_yx, indices = self._sample_coords(coords_yx)
-            coords_yx, indices, pad_size = self._truncate_or_get_indices(
-                coords_yx, indices
+            image_features, coords_yx = self._sample_tiles(image_features, coords_yx)
+            image_features, coords_yx = self._pad_or_truncate_tiles(
+                image_features, coords_yx
             )
-            image_features = self._load_features_by_indices(slide_path, indices)
-            image_features = self._pad_features(image_features, pad_size)
-        else:
-            with safe_open(slide_path, framework="pt", device="cpu") as f:
-                image_features = f.get_tensor("features")
-                coords_yx = f.get_tensor("coords_yx")
 
         task_labels = {}
         for task, task_info in self.args.tasks.items():
