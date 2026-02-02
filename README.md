@@ -100,71 +100,33 @@ uv pip install -r pyproject.toml
 
 ## 🚀 Quick Start
 
-### 🎯 Single Slide Embeddings Inference
-
-```python
-import os
-import torch
-from huggingface_hub import hf_hub_download
-from safetensors.torch import safe_open, load_file
-from DownStream.utils.pipeline import WSIPipeline
-
-USE_HF_WEIGHTS = True  # Download pretrained weights online
-LOCAL_CKPT = "path/to/best.ckpt"
-EMBEDDING_PATH = "path/to/slide_id.safetensors"
-
-if USE_HF_WEIGHTS:
-    model_path = hf_hub_download(repo_id="PuzzleLogic/PathRWKV_CAMELYON16", filename="model.safetensors")
-    model = WSIPipeline() 
-    model.load_state_dict(load_file(model_path))
-    
-else:
-    model = WSIPipeline.load_from_checkpoint(LOCAL_CKPT)
-    
-    
-model.eval().bfloat16().cuda()
-
-with safe_open(EMBEDDING_PATH, framework="pt", device="cuda") as f:
-        features = f.get_tensor("features").unsqueeze(0)  # [1, N, Dim]
-        coords = f.get_tensor("coords_yx").unsqueeze(0)   # [1, N, 2]
-
-with torch.inference_mode():
-    predictions = model(features, coords)
-    print(f"✨ Prediction: {predictions}")
-```
-
-### 📊 Complete Pipeline
-
 ```python
 # 1️⃣ Preprocess WSI to tiles
 python UpStream/preprocess.py \
     --input_dir /path/to/wsi \
     --output_dir /path/to/tiles \
-    --tile_size 224 \
-    --target_mpp 0.5
+    --edge_size 224 \
+    --target_mpp 0.5 \
+    --t_occupancy 0.1
 
-# 2️⃣ Extract embeddings with foundation model
+# 2️⃣ Extract tiles-embeddings
 python UpStream/embed.py \
     --input_dir /path/to/tiles \
-    --output_dir /path/to/embeddings \
+    --output_dir /path/to/tiles-embeddings \
     --model_name "hf_hub:prov-gigapath/prov-gigapath" \
     --batch_size 512
 
-# 3️⃣ Train PathRWKV
+# 3️⃣ Train & Val & Test PathRWKV
 python DownStream/main.py \
-    --data_path /path/to/embeddings \
+    --data_path /path/to/tiles-embeddings \
     --dataset_name CAMELYON16 \
-    --mode train \
     --batch_size 4 \
+    --max_tiles 2000 \
+    --num_workers -1 \
     --epochs 100 \
-    --lr 1e-4
-
-# 4️⃣ Test model
-python DownStream/main.py \
-    --data_path /path/to/embeddings \
-    --dataset_name CAMELYON16 \
-    --mode test \
-    --test_ckpt /path/to/best.ckpt
+    --lr 1e-3 \
+    --precision "bf16-mixed" \
+    --devices 0
 ```
 ---
 
