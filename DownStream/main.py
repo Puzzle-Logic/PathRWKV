@@ -6,7 +6,7 @@ from pytorch_lightning import Trainer, seed_everything
 from pytorch_lightning.loggers import TensorBoardLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
 
-ROOT_PATH = Path(__file__).resolve().parents[2]
+ROOT_PATH = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT_PATH))
 
 from DownStream.utils.pipeline import WSIPipeline
@@ -110,6 +110,13 @@ def get_args_parser():
     group_train.add_argument(
         "--disable_pbar", action="store_true", help="Disable tqdm progress bar"
     )
+    group_train.add_argument(
+        "--precision",
+        type=str,
+        default="bf16-mixed",
+        choices=["bf16-mixed", "16-mixed", "32"],
+        help="Precision for training (default: bf16-mixed)",
+    )
     return parser.parse_args()
 
 
@@ -156,7 +163,7 @@ if __name__ == "__main__":
         callbacks=callbacks,
         log_every_n_steps=1,
         devices=args.devices,
-        precision="bf16-mixed",
+        precision=args.precision,
         max_epochs=args.epochs,
         num_sanity_val_steps=0,
         enable_model_summary=True,

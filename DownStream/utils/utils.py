@@ -123,8 +123,3 @@ def initialize_experiment(args):
         devices = args.devices
 
     return [data_path, input_dim, tasks, runs_path, runs_name, devices]
-
-
-def random_sampling(image_features, coords_yx):
-    indices = torch.randperm(len(image_features))
-    return image_features[indices], coords_yx[indices]
