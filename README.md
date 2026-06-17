@@ -41,7 +41,7 @@
 Unlike previous MIL methods with linear (O(N)) spatial complexity, PathRWKV achieves constant (O(1)) space complexity, enabling efficient processing of slides with **100,000+ tiles** on memory constrained edge devices.
 
 <p align="center">
-  <img src="assets/asymmetric.svg" alt="Asymmetric Structure">
+  <img src="assets/asymmetric.png" alt="Asymmetric Structure">
   <br>
   <em>Asymmetric structure and GPU memory footprint comparison during inference</em>
 </p>
@@ -51,7 +51,7 @@ Unlike previous MIL methods with linear (O(N)) spatial complexity, PathRWKV achi
 ## 🏗️ Architecture
 
 <p align="center">
-  <img src="assets/main.svg" alt="PathRWKV Overview">
+  <img src="assets/main.png" alt="PathRWKV Overview">
   <br>
   <em>Overview of PathRWKV architecture</em>
 </p>
