@@ -4,7 +4,7 @@
 
 ### *Enhancing Slide Inference with Asymmetric Recurrent Modeling*
 
-<!-- [![Paper](https://img.shields.io/badge/📄_Paper-TMI_2026-blue.svg?style=for-the-badge)](https://ieeexplore.ieee.org/) -->
+[![Paper](https://img.shields.io/badge/📄_Paper-TMI_2026-blue.svg?style=for-the-badge)](https://ieeexplore.ieee.org/abstract/document/11554093)
 [![arXiv](https://img.shields.io/badge/arXiv-2503.03199-B31B1B.svg?style=for-the-badge)](https://arxiv.org/abs/2503.03199)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg?style=for-the-badge)](LICENSE)
 
@@ -30,6 +30,7 @@
 
 |     Date      | News                                |
 | :-----------: | :---------------------------------- |
+| 🎊 **2026.06** | Paper accepted by IEEE Transactions on Medical Imaging |
 | 🚀 **2026.02** | Code and pretrained models released |
 | 📊 **2025.03** | Paper uploaded to arXiv             |
 
@@ -37,10 +38,10 @@
 
 ## ✨ Highlights
 ### ⚡ Asymmetric Structure: Constant Memory Footprint 
-Unlike previous MIL methods with linear ($O(N)$) spatial complexity, PathRWKV achieves constant ($O(1)$) space complexity, enabling efficient processing of slides with **100,000+ tiles** on memory constrained edge devices.
+Unlike previous MIL methods with linear (O(N)) spatial complexity, PathRWKV achieves constant (O(1)) space complexity, enabling efficient processing of slides with **100,000+ tiles** on memory constrained edge devices.
 
 <p align="center">
-  <img src="assets/asymmetric.jpg" alt="Asymmetric Structure">
+  <img src="assets/asymmetric.svg" alt="Asymmetric Structure">
   <br>
   <em>Asymmetric structure and GPU memory footprint comparison during inference</em>
 </p>
@@ -50,7 +51,7 @@ Unlike previous MIL methods with linear ($O(N)$) spatial complexity, PathRWKV ac
 ## 🏗️ Architecture
 
 <p align="center">
-  <img src="assets/overview.png" alt="PathRWKV Overview">
+  <img src="assets/main.svg" alt="PathRWKV Overview">
   <br>
   <em>Overview of PathRWKV architecture</em>
 </p>
@@ -178,7 +179,7 @@ PathRWKV/
 ### CAM Visualization
 
 <p align="center">
-  <img src="assets/cam.jpg" alt="CAM Visualization">
+  <img src="assets/cam.svg" alt="CAM Visualization">
 </p>
 
 ---
@@ -273,11 +274,12 @@ label_dict:
 If you find this work useful, please cite our paper:
 
 ```bibtex
-@article{chen2025pathrwkv,
-  title={PathRWKV: Enabling Whole Slide Prediction with Recurrent-Transformer},
-  author={Chen, Sicheng and Zhang, Tianyi and Liao, Dankai and Li, Dandan and Han, Low Chang and Jiang, Yanqin and Jin, Yueming and Lyu, Shangqing},
-  journal={arXiv preprint arXiv:2503.03199},
-  year={2025}
+@article{zhang2026pathrwkv,
+  title={PathRWKV: Enhancing Whole Slide Image Inference with Asymmetric Recurrent Modeling},
+  author={Zhang, Tianyi and Chen, Sicheng and Kang, Borui and Liao, Dankai and Xue, Qiaochu and Zhang, Bochong and Xia, Fei and Liu, Zeyu and Jin, Yueming},
+  journal={IEEE Transactions on Medical Imaging},
+  year={2026},
+  publisher={IEEE}
 }
 ```
 
